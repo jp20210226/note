@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v3.1",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v3.1": {
+      "IEnumator实现逻辑/1.0.0": {
+        "runtime": {
+          "IEnumator实现逻辑.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "IEnumator实现逻辑/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

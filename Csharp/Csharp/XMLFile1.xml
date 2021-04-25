@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<books>
+  <book>
+    <name>书1</name>
+    <price>19</price>
+    <des>好看</des>
+  </book>
+  <book>
+    <name>书2</name>
+    <price>10</price>
+    <des>不好看</des>
+  </book>
+</books>

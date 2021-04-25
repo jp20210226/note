@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Order>
+  <CustomerName>
+  </CustomerName>
+  <CustomerName>1000001</CustomerName>
+  <CustomerName>
+    <OrderItem1 />
+    <OrderItem1 Name="c2" Count="3" />
+    <OrderItem1 Name="c3" Count="4" />
+  </CustomerName>
+</Order>

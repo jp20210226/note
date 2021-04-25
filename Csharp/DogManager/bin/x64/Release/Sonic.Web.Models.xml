@@ -1,0 +1,3978 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Sonic.Web.Models</name>
+    </assembly>
+    <members>
+        <member name="T:Sonic.Web.Models.ActionCheckModel">
+            <summary>
+            加到Models对象的类上面，加了标签的，就会验证Model对象的属性
+            </summary>
+        </member>
+        <member name="M:Sonic.Web.Models.ActionCheckModel.CheckModel(System.Object)">
+            <summary>
+            验证对象
+            </summary>
+            <param name="actionModel">需要验证的属性实例</param>
+        </member>
+        <member name="T:Sonic.Web.Models.absCheckModel">
+            <summary>
+            验证类型的抽象类，提供了自定义异常内容和创建异常的方法
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.absCheckModel.CustomErrorMessage">
+            <summary>
+            自定义异常消息，指定异常消息后，验证方法不符合要求将返回该消息，比如"设备名称不能为空"
+            </summary>
+        </member>
+        <member name="M:Sonic.Web.Models.absCheckModel.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:Sonic.Web.Models.absCheckModel.CreateException(System.String,System.String)">
+            <summary>
+            创建验证消息，用于不符合验证要求时报错
+            </summary>
+            <param name="msg">异常消息</param>
+            <param name="ModelProperty">异常属性名称</param>
+        </member>
+        <member name="M:Sonic.Web.Models.absCheckModel.CreateInnerException(System.Exception,System.String)">
+            <summary>
+            出现内部异常后创建异常，返回代码错误
+            </summary>
+            <param name="ex"></param>
+            <param name="ModelProperty"></param>
+        </member>
+        <member name="T:Sonic.Web.Models.CheckModelMessageException">
+            <summary>
+            不符合验证消息异常
+            </summary>
+        </member>
+        <member name="T:Sonic.Web.Models.CheckModelInnerException">
+            <summary>
+            验证代码出现异常
+            </summary>
+        </member>
+        <member name="T:Sonic.Web.Models.ICheckModel">
+            <summary>
+            验证类接口，内部方法Check用于验证逻辑
+            </summary>
+        </member>
+        <member name="T:Sonic.Web.Models.CheckModelStringNoEmpty">
+            <summary>
+            验证字符串不能为空
+            </summary>
+        </member>
+        <member name="M:Sonic.Web.Models.CheckModelStringNoEmpty.Check(System.Object,System.String)">
+            <summary>
+            验证方法
+            </summary>
+            <param name="Property">属性实例</param>
+            <param name="PropertyName">属性名称</param>
+        </member>
+        <member name="P:Sonic.Web.Models.AlarmRule.AlarmRuleObject.xOrderBy">
+            <summary>
+            排序号
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.AlarmRule.AlarmRuleObject.IsEnabled">
+            <summary>
+            启用规则
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.AlarmRule.AlarmRuleObject.MonitorEvent">
+            <summary>
+            单选钮：监视事态
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.AlarmRule.AlarmRuleObject.Syslogs">
+            <summary>
+            单选钮：Syslog、SnmpTrap、Netflow
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.AlarmRule.AlarmRuleObject.SendAvaEvent">
+            <summary>
+            复选框：发送可用性事态报警
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.AlarmRule.AlarmRuleObject.SendCapEvent">
+            <summary>
+            复选框：发送容量事态报警
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.AlarmRule.AlarmRuleObject.SendCredenceEvent">
+            <summary>
+            复选框：发送设备凭证异常报警
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.AlarmRule.AlarmRuleObject.IsRelationAllCI">
+            <summary>
+            复选框：关联全部CI
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.AlarmRule.AlarmRuleObject.SelectedCIIds">
+            <summary>
+            关联的CI，格式：设备1,CI1;设备1,CI2;设备2,CI3;设备2,CI4
+            即格式为：每个设备ID后面跟一个CIID
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.AlarmRule.AlarmRuleObject.EnabledMessage">
+            <summary>
+            复选框：启用客户端消息报警
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.AlarmRule.AlarmRuleObject.UserIdsOfMessage">
+            <summary>
+            客户端消息收件人
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.AlarmRule.AlarmRuleObject.EnabledEmail">
+            <summary>
+            复选框：启用邮件报警
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.AlarmRule.AlarmRuleObject.EmailTemplate">
+            <summary>
+            邮件模板
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.AlarmRule.AlarmRuleObject.Emails">
+            <summary>
+            邮件地址
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.AlarmRule.AlarmRuleObject.EnabledSms">
+            <summary>
+            复选框：启用短信报警
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.AlarmRule.AlarmRuleObject.SmsTemplate">
+            <summary>
+            短信模版
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.AlarmRule.AlarmRuleObject.SmsMobils">
+            <summary>
+            手机号
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.AlarmRule.AlarmRuleObject.OnlySendOne">
+            <summary>
+            复选框：仅发送一次
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.AlarmRule.AlarmRuleObject.RecoveryOne">
+            <summary>
+            复选框：自动恢复后提醒一次
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.AlarmRule.AlarmRuleObject.AccordingTimeRemind">
+            <summary>
+            单选钮：按监视次数重复提醒
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.AlarmRule.AlarmRuleObject.StartCallNumberOfTimes">
+            <summary>
+            频率规则：监视N次开始报警
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.AlarmRule.AlarmRuleObject.AccordingTimeCycle">
+            <summary>
+            单选钮：按时间周期重复提醒
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.AlarmRule.AlarmRuleObject.ContinueCallEveryMinutes">
+            <summary>
+            频率规则：每隔N分钟继续报警
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.AlarmRule.AlarmRuleObject.NewEventCall">
+            <summary>
+            复选框：新增事态立即报警
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.AlarmRule.AlarmRuleObject.ContentChangeCall">
+            <summary>
+            复选框：内容发生变化才报警
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.AlarmRule.AlarmRuleObject.EnabledUnworkTime">
+            <summary>
+            复选框：启用非工作时间规则
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.AlarmRule.AlarmRuleObject.Weekend">
+            <summary>
+            复选框：周六日
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.AlarmRule.AlarmRuleObject.UnworkFromTime">
+            <summary>
+            非工作时段的开始时间
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.AlarmRule.AlarmRuleObject.UnworkEndTime">
+            <summary>
+            非工作时段的结束时间
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.AlarmRule.AlarmRuleObject.StopCallAtUnwork">
+            <summary>
+            复选框：非工作时间段停止报警
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.AlarmRule.AlarmRuleObject.StartCallNumberOfTimesUnwork">
+            <summary>
+            非工作时间段停止报警:监视N次开始报警
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.AlarmRule.AlarmRuleObject.ContinueCallEveryMinutesUnwork">
+            <summary>
+            非工作时间段停止报警:每隔N分钟继续报警
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.Base.FlowObjectBase.xITCompIds">
+            <summary>
+            相关IT组件ID串。 格式：xxxx,xxxxx,xxxx
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.Business.DataVisualView.Tables">
+            <summary>
+            本图中的所有表
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.Business.DataVisualTable.DataBaseName">
+            <summary>
+            数据库的原始名称
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.Business.DataVisualTable.DataBaseTitle">
+            <summary>
+            数据库在NIView中的标题
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.Business.DataVisualColumn.DataBaseName">
+            <summary>
+            数据库的原始名称
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.Business.DataVisualColumn.DataBaseTitle">
+            <summary>
+            数据库在NIView中的标题
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.Business.DataVisualColumn.TableName">
+            <summary>
+            表的原始名称
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.Business.DataVisualColumn.TableTitle">
+            <summary>
+            表在NIView中的标题
+            </summary>
+        </member>
+        <member name="T:Sonic.Web.Models.TopologyGojs.TopoNode">
+            <summary>
+            名字都是简写，为了减少拓扑图的负担
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.TopologyGojs.TopoNode.key">
+            <summary>
+            节点的ID，如果是设备对应C_ITComp.P_Guid,
+            如果是虚结点，对应虚结点的Id
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.CMDB.AutoCMDBPageCondition.xPageIndex">
+            <summary>
+            当前页号
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.CMDB.AutoCMDBPageCondition.xPageItemCount">
+            <summary>
+            每页显示记录数
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.CMDB.AutoCMDBPageCondition.xAllDataCount">
+            <summary>
+            记录总数
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.CMDB.AutoCMDBPageCondition.xAllPageCount">
+            <summary>
+            总页数
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.CMDB.AutoCMDBPageCondition.SearchCondition">
+            <summary>
+            查询条件
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.CMDB.AutoCMDBPageCondition.xSearchPanelCondition">
+            <summary>
+            组合查询用该属性
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.CMDB.AutoCMDBSearchCondition.ModelKey">
+            <summary>
+            模块名称
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.CMDB.AutoCMDBSearchCondition.KeyWord">
+            <summary>
+            查询关键字
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.CMDB.AutoCMDBSearchCondition.GroupSearchItem">
+            <summary>
+            条件集合
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.CMDB.AutoCMDBSearchCondition.xSeachAndOr">
+            <summary>
+            分组条件
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.CMDB.AutoCMDBSearchCondition.IsShowSystemUser">
+            <summary>
+            人员模块专用，是否显示系统用户，默认显示
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.CMDB.AutoCMDBSearchCondition.IsShowNoRole">
+            <summary>
+            人员模块专用，是否显示无角色人员，默认不显示
+            </summary>
+        </member>
+        <member name="T:Sonic.Web.Models.CMDB.AutoCMDBList">
+            <summary>
+            列表基本信息
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.CMDB.AutoCMDBList.Header">
+            <summary>
+            标题
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.CMDB.AutoCMDBList.ViewDataMapping">
+            <summary>
+            数据表
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.CMDB.AutoCMDBList.Type">
+            <summary>
+            模块名称(对应\Sonic.Server\SonicWebV6\Config\CMDB\UIMapping.xml中每个List的Type)
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.CMDB.AutoCMDBList.RowList">
+            <summary>
+            数据行集合
+            </summary>
+        </member>
+        <member name="T:Sonic.Web.Models.CMDB.AutoCMDBListRow">
+            <summary>
+            数据行
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.CMDB.AutoCMDBListRow.RowId">
+            <summary>
+            行Id，一般为P_Guid
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.CMDB.AutoCMDBListRow.RowNumber">
+            <summary>
+            行索引
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.CMDB.AutoCMDBListRow.ItemList">
+            <summary>
+            数据列集合
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.CMDB.AutoCMDBListRow.DataRight_W">
+            <summary>
+            数据的编辑权限
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.CMDB.AutoCMDBListRow.HasDataRight_W">
+            <summary>
+            当前用户是否有本条数据的编辑权限
+            </summary>
+        </member>
+        <member name="T:Sonic.Web.Models.CMDB.AutoCMDBListItem">
+            <summary>
+            数据列
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.CMDB.AutoCMDBListItem.ItemNumber">
+            <summary>
+            列索引
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.CMDB.AutoCMDBListItem.Header">
+            <summary>
+            标题
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.CMDB.AutoCMDBListItem.CustomHeader">
+            <summary>
+            自定义标题
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.CMDB.AutoCMDBListItem.DataMapping">
+            <summary>
+            数据表中字段名
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.CMDB.AutoCMDBListItem.DataValue">
+            <summary>
+            值
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.CMDB.AutoCMDBListItem.Width">
+            <summary>
+            字段宽度，可以是标准宽度，也可以是宽度百分比
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.CMDB.AutoCMDBListItem.IsVisiable">
+            <summary>
+            是否可见
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.CMDB.AutoCMDBListItem.IsIcon">
+            <summary>
+            是否是图标
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.CMDB.AutoCMDBListItem.IsForeign">
+            <summary>
+            是否需要关键外键表
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.CMDB.AutoCMDBListItem.ForeignData">
+            <summary>
+            外键表信息
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.CMDB.AutoCMDBListItem.DateQueryFormat">
+            <summary>
+            日期类型查询时，需要转换的格式，因为日期类型的 like '中文'会出错，需要把日期类型的转换成字符串like
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.CMDB.AutoCMDBListItem.IsEnum">
+            <summary>
+            是否是枚举
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.CMDB.AutoCMDBListItem.EnumData">
+            <summary>
+            枚举信息
+            </summary>
+        </member>
+        <member name="T:Sonic.Web.Models.CMDB.ForeignParameter">
+            <summary>
+            外键关系表
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.CMDB.ForeignParameter.ForeignTable">
+            <summary>
+            外键表名称
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.CMDB.ForeignParameter.MainKey">
+            <summary>
+            主表连接key
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.CMDB.ForeignParameter.ForeignKey">
+            <summary>
+            外键表连接key
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.CMDB.ForeignParameter.ForeignColumn">
+            <summary>
+            需要的外键表字段
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.CMDB.ForeignParameter.SqlOfForeignColumn">
+            <summary>
+            外键表字段查询语句
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.CMDB.ForeignParameter.ForeignColumnAliasName">
+            <summary>
+            外键表字段别名（因为是子查询，所以必须填）
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.CMDB.ForeignParameter.ForeignWhereCondition">
+            <summary>
+            外键表where条件
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.CMDB.ForeignParameter.ForeignWhere">
+            <summary>
+            外键表where条件(新版使用)
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.CMDB.ForeignParameter.ForeignTableAliasName">
+            <summary>
+            外键表别名，新版CDMB使用，因为关联外键表放在了left join中，可能会出现重复的外键表，所以必须有别名
+            别名 = ForeignTable_MainKey
+            </summary>
+        </member>
+        <member name="T:Sonic.Web.Models.CMDB.CIRelationOne">
+            <summary>
+            客户端和服务器端使用的打包关系对象
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.CMDB.CMDBRelationItem.IsUserRole">
+            <summary>
+            用户角色
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.CMDB.CMDBRelationItem.IsCustomerRole">
+            <summary>
+            非用户角色
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.CMDB.Contract.xNum">
+            <summary>
+            自增，合同自增号
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.CMDB.Contract.xNumber">
+            <summary>
+            合同编号，合同里这个不是自增，xNum才是自增，不要搞错了
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.CMDB.Contract.xProjectName">
+            <summary>
+            项目名称
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.CMDB.Contract.xProjectNum">
+            <summary>
+            项目编号
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.CMDB.Contract.xType">
+            <summary>
+            合同类型
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.CMDB.Contract.xTypeText">
+            <summary>
+            合同类型 文本
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.CMDB.Contract.xDetail">
+            <summary>
+            合同标的（内容）
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.CMDB.Contract.xSum">
+            <summary>
+            合同金额
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.CMDB.Contract.xHostUser">
+            <summary>
+            主办人
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.CMDB.Contract.xHostUserFullName">
+            <summary>
+            主办人 姓名
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.CMDB.Contract.xBeginTime">
+            <summary>
+            签订日期
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.CMDB.Contract.xFinishTime">
+            <summary>
+            完成日期
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.CMDB.Contract.xUser">
+            <summary>
+            签订人
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.CMDB.Contract.xUserFullName">
+            <summary>
+            签订人 姓名
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.CMDB.Contract.xSignLocation">
+            <summary>
+            签订地点
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.CMDB.Contract.xEndTime">
+            <summary>
+            到期日期
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.CMDB.Contract.xLocation">
+            <summary>
+            保存地点
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.CMDB.Contract.xStockNum">
+            <summary>
+            采购单号
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.CMDB.Contract.xStockType">
+            <summary>
+            采购方式
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.CMDB.Contract.xStockTypeText">
+            <summary>
+            采购方式 文本
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.CMDB.Contract.xExpandA">
+            <summary>
+            备注
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.CMDB.Contract.xA">
+            <summary>
+            甲方
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.CMDB.Contract.xAText">
+            <summary>
+            甲方姓名
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.CMDB.Contract.xBusinessContact">
+            <summary>
+            商务联系人
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.CMDB.Contract.xBusinessContactText">
+            <summary>
+            商务联系人 文本
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.CMDB.Contract.xTechContact">
+            <summary>
+            技术联系人
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.CMDB.Contract.xTechContactText">
+            <summary>
+            技术联系人 文本
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.CMDB.Contract.xAContactTel">
+            <summary>
+            联系方式
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.CMDB.Contract.xAAddress">
+            <summary>
+            地址
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.CMDB.Contract.xAResponsibility">
+            <summary>
+            违约责任
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.CMDB.Contract.xB">
+            <summary>
+            乙方
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.CMDB.Contract.xBBank">
+            <summary>
+            开户银行
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.CMDB.Contract.xBAccountName">
+            <summary>
+            账户名称
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.CMDB.Contract.xBAccountNumber">
+            <summary>
+            银行帐号
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.CMDB.Contract.xBTaxNumber">
+            <summary>
+            税号
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.CMDB.Contract.xBContactUser">
+            <summary>
+            联系人
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.CMDB.Contract.xBContactTel">
+            <summary>
+            联系方式
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.CMDB.Contract.xBResponsibility">
+            <summary>
+            违约责任
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.CMDB.Contract.xC">
+            <summary>
+            丙方
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.CMDB.Contract.xIsFinish">
+            <summary>
+            执行完毕
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.CMDB.Contract.xDelivery1">
+            <summary>
+            软硬件货物交付
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.CMDB.Contract.xDelivery2">
+            <summary>
+            开发服务交付
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.CMDB.Contract.xTrain">
+            <summary>
+            培训
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.CMDB.Contract.xMaintenance">
+            <summary>
+            维护服务履行
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.CMDB.Contract.xOther">
+            <summary>
+            其他
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.CMDB.Contract.xNExpandB">
+            <summary>
+            备注1
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.CMDB.Contract.xNExpandC">
+            <summary>
+            备注2
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.CMDB.Contract.xNExpandD">
+            <summary>
+            备注3
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.CMDB.Contract.xNExpandE">
+            <summary>
+            备注4
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.CMDB.Contract.xNExpandF">
+            <summary>
+            备注5
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.CMDB.Contract.xPropertyA">
+            <summary>
+            备注6
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.CMDB.Contract.xPropertyB">
+            <summary>
+            备注7
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.CMDB.Contract.xPropertyC">
+            <summary>
+            备注8
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.CMDB.Contract.xPropertyD">
+            <summary>
+            备注9
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.CMDB.Contract.xPropertyE">
+            <summary>
+            备注10
+            </summary>
+        </member>
+        <member name="T:Sonic.Web.Models.CMDB.ContractFinancialSubject">
+            <summary>
+            合同的财务科目
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.CMDB.ContractFinancialSubject.xGuid">
+            <summary>
+            项目名称
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.CMDB.ContractFinancialSubject.xPid">
+            <summary>
+            合同ID
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.CMDB.ContractFinancialSubject.xPayId">
+            <summary>
+            付款方式ID
+            </summary>
+        </member>
+        <member name="T:Sonic.Web.Models.CMDB.ContractPay">
+            <summary>
+            合同的付款方式
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.CMDB.ContractPay.xPid">
+            <summary>
+            合同号
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.CMDB.ContractPay.xCondition">
+            <summary>
+            支付条件
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.CMDB.ContractPay.xProportion">
+            <summary>
+            支付比例
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.CMDB.ContractPay.xMoney">
+            <summary>
+            支付金额
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.CMDB.ContractPay.xMemo">
+            <summary>
+            备注
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.CMDB.ContractPay.xPlanPayTime">
+            <summary>
+            计划支付时间
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.CMDB.ContractPay.xActualPayTime">
+            <summary>
+            实际支付时间
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.CMDB.ContractPay.xPayFinancialSubjectString">
+            <summary>
+            将xPayFinancialSubject拼成字符串，例如：
+            硬件:100元;软件:200元;
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.CMDB.ITService.xId">
+            <summary>
+            服务编号
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.CMDB.ITService.xType">
+            <summary>
+            分组Guid外键 表：d_itservice_group
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.CMDB.ITService.xDutyRole">
+            <summary>
+            责任角色
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.CMDB.ITService.xPort">
+            <summary>
+            相关端口
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.CMDB.ITService.xVersionNumber">
+            <summary>
+            版本号
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.CMDB.ITService.xSecurityLevel">
+            <summary>
+            安全级别
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.CMDB.ITService.xCycle">
+            <summary>
+            生命周期
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.CMDB.ITService.xDescr">
+            <summary>
+            描述
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.CMDB.ITService.xIsMainService">
+            <summary>
+            是否是主服务（默认：是）
+            </summary>
+        </member>
+        <member name="T:Sonic.Web.Models.CMDB.ITServiceCIRelation">
+            <summary>
+            一个服务对应5类设备集合，中间件、数据库、主机、存储和网络设备
+            每个集合中的设备CI具有序号，这个序号是跨组的
+            </summary>
+        </member>
+        <member name="T:Sonic.Web.Models.CMDB.ItServiceCapChartData">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Sonic.Web.Models.CMDB.ItServiceCapChartDataItem">
+            <summary>
+            服务容量趋势图数据
+            </summary>
+        </member>
+        <member name="M:Sonic.Web.Models.CMDB.ItServiceCapChartDataItem.#ctor">
+            <summary>
+            默认构造函数
+            </summary>
+        </member>
+        <member name="T:Sonic.Web.Models.CMDB.ItServiceCapChartInfoItem">
+            <summary>
+            服务容量趋势图上面的标题信息
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.CMDB.ItServiceCapChartInfoItem.xTodayEventCount">
+            <summary>
+            这个服务当天产生的事态数量
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.CMDB.ItServiceCapChartInfoItem.xTodayEventCompleteCount">
+            <summary>
+            这个服务当天解决的事态数量
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.CMDB.ItServiceCapChartInfoItem.xErrorStateCount">
+            <summary>
+            异常设备数量
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.CMDB.ItServiceCapChartInfoItem.xWarningStateCount">
+            <summary>
+            警告设备数量
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.CMDB.ItServiceCapChartInfoItem.xCredenceErrorCount">
+            <summary>
+            凭证异常数量
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.CMDB.ItServiceCapChartInfoItem.xErrorCompCount">
+            <summary>
+            异常设备数量
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.CMDB.ItServiceCapChartInfoItem.xWarningCompCount">
+            <summary>
+            警告设备数量
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.CMDB.ItServiceCapChartInfoItem.xNormalCompCount">
+            <summary>
+            正常设备数量
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.CMDB.Organization.xType">
+            <summary>
+            机构类别ID
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.CMDB.User.xMachineType">
+            <summary>
+            机器类型
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.CMDB.User.xOSType">
+            <summary>
+            操作系统
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.CMDB.User.xIPAddress">
+            <summary>
+            ip
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.CMDB.User.xMac">
+            <summary>
+            mac
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.CMDB.User.xLinkDevice">
+            <summary>
+            所连设备
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.CMDB.User.xLinkInterface">
+            <summary>
+            所连端口
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.CMDB.User.xIfBandwidth">
+            <summary>
+            带宽
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.CMDB.ITComponent.xTypeInfo">
+            <summary>
+            设备的类型
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.CMDB.ITComponent.xLifeCycle">
+            <summary>
+            生命周期，对应d_itcomp_lifecycle
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.CMDB.ITComponent.xCIP_SlotCount">
+            <summary>
+            网络设备的槽位数
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.CMDB.ITComponent.xExpiryDate">
+            <summary>
+            终端到期时间
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.CMDB.ITComponent.xIsBackup">
+            <summary>
+            是否是备件
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.COM.ChooserBaseSearchItemObject.ParentId">
+            <summary>
+            拥有者ID
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.COM.ChooserBaseSearchItemObject.Keyword">
+            <summary>
+            搜索关键字
+            支持多个，以“空格”分隔
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.COM.SqlAction.xDBType">
+            <summary>
+            0: SqlServer
+            1: Oracle
+            2: MySql
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.COM.VideoChooserSearchItem.Keyword">
+            <summary>
+            搜索关键字
+            支持多个，以“空格”分隔
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.COM.Attachment.xTimeStamp">
+            <summary>
+            时间戳
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.COM.Attachment.xToken">
+            <summary>
+            md5校验码
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.COM.ChooserParameter.xValues">
+            <summary>
+            用于设置值的时候使用，根据ID现实文字
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.COM.ChooserParameter.xDllName">
+            <summary>
+            枚举类所在dll名称
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.COM.ChooserParameter.xEnumName">
+            <summary>
+            枚举名称（全称，带命名空间）
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.COM.ChooserParameter.ValueTexts">
+            <summary>
+            incident,事件;problem,问题;requirement,需求;change,变更
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.COM.ITCompChooserItem.xITCompId">
+            <summary>
+            相关IT组件
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.COM.ITCompChooserItem.xCmdbType">
+            <summary>
+            CMDB模块，用于viewone
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.COM.ITCompChooserItem.CIItems">
+            <summary>
+            存放CI的ID
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.COM.ITCompChooserItem.xAEType">
+            <summary>
+            操作类型
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.COM.ITCompChooserItem.xBarcode">
+            <summary>
+            1D条形码
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.COM.ITCompChooserItem.xSupportCompModelText">
+            <summary>
+            支持设备的型号
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.COM.ITCompChooserSearchItem.IsPreviewMode">
+            <summary>
+            是否是预览模式
+            true：可以直接获取Ids and ... and ...。注意：ITCompIdList必须有值
+            false：关联关系直接写入BI_ITComp_Reference
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.COM.ITCompChooserSearchItem.ITCompCatalogs">
+            <summary>
+            ITCompCatalog枚举值
+            支持多个，以“|”号分隔
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.COM.ITCompChooserSearchItem.ITCompFunctions">
+            <summary>
+            ITCompFunction枚举值
+            支持多个，以“|”号分隔
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.COM.ITCompChooserSearchItem.xFilterId">
+            <summary>
+            为了拓扑图，过滤掉已经在这个拓扑图中的设备
+            在 ITCompChooserHelper 类里面，他表示TopoView的Id
+            在ITCompChooserByPidHelper 类里面，没用
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.COM.ITCompChooserSearchItem.xCITypeFilter">
+            <summary>
+            如果是空，则是没有过滤条件，如果有则按照类型过滤 Interface|CPU
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.COM.ITCompChooserSearchItem.xIsBackup">
+            <summary>
+            是否是备件
+            </summary>
+        </member>
+        <member name="T:Sonic.Web.Models.COM.SimpleListItem">
+            <summary>
+            简单的List项，一般用于组合查询中的下拉列表的项
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.COM.SimpleListItem.xDisplayText">
+            <summary>
+            显示的文本
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.COM.SimpleListItem.xValue">
+            <summary>
+            实际的值
+            </summary>
+        </member>
+        <member name="T:Sonic.Web.Models.COM.UserAction">
+            <summary>
+            用户的动态 对应数据表 BI_USERACTION
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.COM.UserAction.xUserId">
+            <summary>
+            用户的Id
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.COM.UserAction.xUserFullName">
+            <summary>
+            用户的名字
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.COM.UserAction.xActionDetail">
+            <summary>
+            动态的详细信息 对应字段 D_ACTIONDETAIL
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.COM.UserAction.xExpandDetail">
+            <summary>
+            动态的扩展信息，当动态关联了其他的有具体内容的数据，则该字段反应一部分该数据的内容。
+            比如：当用户的动作是添加了知识，那么这个属性则放的是知识的内容，长度限制为70
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.COM.UserAction.xDateTime">
+            <summary>
+            动作的时间
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.COM.UserAction.xObjectId">
+            <summary>
+            关联数据的ID号
+            <remarks>
+            <list type="table">
+            <item>
+                <term>如果是添加知识</term>
+                <description>则该属性为知识的GUID</description>
+            </item> 
+            <item>
+                <term>如果是心情</term>
+                <description>则随机产生一个GUID，与系统中的任何模块都没有关系</description>
+            </item> 
+            <item>
+                <term>如果是工单</term>
+                <description>则该属性为工单的GUID，然而有可能是事件、问题、变更等流程</description>
+            </item> 
+            </list>
+            </remarks>
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.COM.UserAction.xActionTitle">
+            <summary>
+            动作的标题，这个标题是程序定义了规范，在项目中搜索 SaveUserActionDynamic 可以找到所有写入活动的地方
+            而通过标题的关键字搜索则可以区分到底是什么活动，虽然着不是很清晰，但是设计之初并没有考虑那么多。
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.COM.UserAction.xGoodCount">
+            <summary>
+            点赞的次数
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.COM.UserAction.xCommitCount">
+            <summary>
+            评论的总次数
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.COM.UserAction.xUserComments">
+            <summary>
+            评论的列表
+            </summary>
+        </member>
+        <member name="T:Sonic.Web.Models.COM.xPackege">
+            <summary>
+            反应团队动态的对象
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.COM.xPackege.xUserActions">
+            <summary>
+            用户动态的集合
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.COM.xPackege.xTodayFeelItems">
+            <summary>
+            今日点击了心情的人的详情
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.COM.xPackege.xTodayAvgFeelCode">
+            <summary>
+            今日人员状态值的平均
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.COM.xPackege.xAvgHistorys">
+            <summary>
+            一周人员状态平均值
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.COM.xPackege.xHistAvgString">
+            <summary>
+            作废，没有使用
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.COM.xPackege.xHistSumCount">
+            <summary>
+            作废前台没有使用
+            </summary>
+        </member>
+        <member name="T:Sonic.Web.Models.COM.xTodayFeelItem">
+            <summary>
+            今日点击心情的详情
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.COM.xTodayFeelItem.xUserId">
+            <summary>
+            点击心情的用户
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.COM.xTodayFeelItem.xFeelCode">
+            <summary>
+            心情的指数
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.COM.xTodayFeelItem.xFeel">
+            <summary>
+            心情的文字
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.COM.xTodayFeelItem.xUserName">
+            <summary>
+            点击心情的用户的名字
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.COM.xTodayFeelItem.xDateTime">
+            <summary>
+            点击的时间
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.COM.OneActionUIObject.xCmdbData">
+            <summary>
+            这个是跟随流程的部分CMDB的字段，他们有可能有，有可能没有
+            </summary>
+        </member>
+        <member name="T:Sonic.Web.Models.Dashboard.CTOAnalysisObject">
+            <summary>
+            开发需求分析数据对象
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.Dashboard.CTOAnalysisObject.D3TreeMapSource">
+            <summary>
+            十亿美元图
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.Dashboard.CTOAnalysisObject.DevBurnChart">
+            <summary>
+            研发任务的燃烧图，用来重点查看当前没完成的任务的总工作量
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.Dashboard.CTOAnalysisObject.DevPointDistributByUsers">
+            <summary>
+            未完成的开发任务按照Point统计，看在谁手里
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.Dashboard.CTOAnalysisObject.DevPointDistributByState">
+            <summary>
+            未完成的开发各按照Point统计，状态的数量
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.Dashboard.CTOAnalysisObject.DevPointDistributByServcie">
+            <summary>
+            服务的工作量到底有多少,注意是全部，没有什么完成没完成的条件
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.Dashboard.CTOAnalysisObject.DevPointByDays">
+            <summary>
+            按天统计，每天产生多少工作量，每天完成多少工作量
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.Dashboard.CTOAnalysisObject.RequirementTable">
+            <summary>
+            需求的情况，按照客户统计
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.Dashboard.CTOAnalysisObject.Services">
+            <summary>
+            列出所有的服务
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.Dashboard.CTOAnalysisObject.DemandDisByWizard">
+            <summary>
+            需求按照向导分组
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.Dashboard.CTOAnalysisObject.DemandDisByService">
+            <summary>
+            需求按服务分组
+            </summary>
+        </member>
+        <member name="T:Sonic.Web.Models.Dashboard.IncidentAnalysisObject">
+            <summary>
+            事件管理分析的数据对象
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.Dashboard.IncidentAnalysisObject.DevPointByDays">
+            <summary>
+            按天统计，每天产生多少工作量，每天完成多少工作量
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.Dashboard.IncidentAnalysisObject.DevPointByMonth">
+            <summary>
+            按月统计
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.Dashboard.IncidentAnalysisObject.DevPointByWeek">
+            <summary>
+            按周统计
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.Dashboard.IncidentAnalysisObject.D3TreeMapSource">
+            <summary>
+            十亿美元图
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.Dashboard.IncidentAnalysisObject.DistributByUsers">
+            <summary>
+            未完成的事件统计，看在谁手里
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.Dashboard.IncidentAnalysisObject.DistributByState">
+            <summary>
+            未完成的开发各按照Point统计，状态的数量
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.Dashboard.IncidentAnalysisObject.DistributByServcie">
+            <summary>
+            服务的工作量到底有多少,注意是全部，没有什么完成没完成的条件
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.Dashboard.IncidentAnalysisObject.Services">
+            <summary>
+            列出所有的服务
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.Dashboard.IncidentAnalysisObject.SALHongAndHeiTrends">
+            <summary>
+            红和黑的周趋势
+            </summary>
+        </member>
+        <member name="T:Sonic.Web.Models.Dashboard.RequirementListItem">
+            <summary>
+            以客户的角度看需求的统计
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.Dashboard.RequirementListItem.xRequirementGuid">
+            <summary>
+            需求ID
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.Dashboard.RequirementListItem.xSprintTitle">
+            <summary>
+            Sprint标题
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.Dashboard.RequirementListItem.xCustomer">
+            <summary>
+            客户名称
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.Dashboard.RequirementListItem.xRequirementTitle">
+            <summary>
+            需求标题
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.Dashboard.RequirementListItem.xStateText">
+            <summary>
+            需求状态
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.Dashboard.RequirementListItem.xRole">
+            <summary>
+            需求complate标识
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.Dashboard.RequirementListItem.xCompletedDevCount">
+            <summary>
+            需求下任务完成数
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.Dashboard.RequirementListItem.xDevCount">
+            <summary>
+            需求下任务总数
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.Dashboard.RequirementListItem.xComplateUSPoint">
+            <summary>
+            需求下任务故事点数完成数
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.Dashboard.RequirementListItem.xUSPoint">
+            <summary>
+            需求下任务故事总点数
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.Dashboard.RequirementCustomGroup.CustomeName">
+            <summary>
+            客户名称
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.Dashboard.RequirementCustomGroup.USPointAll">
+            <summary>
+            故事点总数
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.Dashboard.RequirementCustomGroup.USPointComplate">
+            <summary>
+            故事点完结
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.Dashboard.RequirementCustomGroup.DemandAll">
+            <summary>
+            需求总数
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.Dashboard.RequirementCustomGroup.DemandComplate">
+            <summary>
+            需求完成
+            </summary>
+        </member>
+        <member name="T:Sonic.Web.Models.Dashboard.ScriptView">
+            <summary>
+            脚本视图
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.Dashboard.ScriptView.xOption">
+            <summary>
+            在TV Show视图中用到，脚本视图中没有用到
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.Dashboard.ScriptView.xViewCol">
+            <summary>
+            //布局：列
+            </summary>
+        </member>
+        <member name="F:Sonic.Web.Models.Dashboard.ScriptView._xPanelList">
+            <summary>
+            默认的面板列表
+            </summary>
+        </member>
+        <member name="F:Sonic.Web.Models.Dashboard.ScriptView._xPanelListCustom">
+            <summary>
+            自定义的面板列表
+            </summary>
+        </member>
+        <member name="T:Sonic.Web.Models.Dashboard.ScriptPanel">
+            <summary>
+            面板
+            </summary>
+        </member>
+        <member name="F:Sonic.Web.Models.Dashboard.ScriptPanel._xPanelWidth">
+            <summary>
+            面板占几列
+            </summary>
+        </member>
+        <member name="F:Sonic.Web.Models.Dashboard.ScriptPanel._xPanelHeight">
+            <summary>
+            面板占几行
+            </summary>
+        </member>
+        <member name="F:Sonic.Web.Models.Dashboard.ScriptPanel._xPanelRow">
+            <summary>
+            面板在第几行
+            </summary>
+        </member>
+        <member name="F:Sonic.Web.Models.Dashboard.ScriptPanel._xPanelCol">
+            <summary>
+            面板在第几列
+            </summary>
+        </member>
+        <member name="F:Sonic.Web.Models.Dashboard.ScriptPanel._xPanelCIData_Line">
+            <summary>
+            折线图的CI数据
+            </summary>
+        </member>
+        <member name="T:Sonic.Web.Models.Dashboard.HighChartSeries">
+            <summary>
+            折线图的序列
+            </summary>
+        </member>
+        <member name="F:Sonic.Web.Models.Dashboard.HighChartSeries._data">
+            <summary>
+            柱状图的点
+            </summary>
+        </member>
+        <member name="F:Sonic.Web.Models.Dashboard.HighChartSeries._xLinePoints">
+            <summary>
+            折线图的点
+            </summary>
+        </member>
+        <member name="T:Sonic.Web.Models.Dashboard.HighChartPoint">
+            <summary>
+            折线图的一个点，因为highcharts.js控件，折线图上点的x值必须是Date.UTC的数据，因此必须把年月日时分秒都弄出来方便前台使用
+            item = {};
+            item.x = Date.UTC(2014, 9, 2, 11, 20, 00, 000);
+            item.y = 15;
+            data1.push(item);
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.ChartReport.ChartReportItemGroup.xKey">
+            <summary>
+            组标识
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.ChartReport.ChartReportItemGroup.xTitle">
+            <summary>
+            组名
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.ChartReport.ChartReportItemGroup.xChartReportItemList">
+            <summary>
+            组成员数据
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.ChartReport.ChartReportData.xGroupList">
+            <summary>
+            组集合
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.ChartReport.ChartReportData.xAvgValueList">
+            <summary>
+            平均统计
+            </summary>
+        </member>
+        <member name="M:Sonic.Web.Models.ChartReport.ChartReportData.ComputeAvg">
+            <summary>
+            计算平均值
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.ChartReport.WrokReportOne.xDealCount">
+            <summary>
+            处理中
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.ChartReport.WrokReportOne.xOKCount">
+            <summary>
+            已完成
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.ChartReport.WrokReportOne.xPercent">
+            <summary>
+            完成率
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.Cmp.ITCompPanelPart.xGuid">
+            <summary>
+            IT组件P_Guid
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.Cmp.ITCompPanelPart.xPartType">
+            <summary>
+            Part类型
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.Cmp.ITCompPanelPart.xCIKey">
+            <summary>
+            CIKey
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.Cmp.ITCompPanelPart.xCIData">
+            <summary>
+            M_CIM
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.Cmp.ITCompPanelPart.xMonitorData">
+            <summary>
+            M_MonitorDatum
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.Cmp.ITCompPanelPart.SubPart">
+            <summary>
+            子CI的Part(xPartType值为Com_Tree)
+            </summary>
+        </member>
+        <member name="T:Sonic.Web.Models.Cmp.TemplateNewDataItem">
+            <summary>
+            新增一个CI的时候需要的数据
+            </summary>
+        </member>
+        <member name="T:Sonic.Web.Models.Cmp.TemplateNewDataDefaultData">
+            <summary>
+            新增一个CI时，所需要的默认数据
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.Cmp.ITCompListObject.xGuid">
+            <summary>
+            主键
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.Cmp.ITCompListObject.xHostName">
+            <summary>
+            主机名称
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.Cmp.ITCompListObject.xBusinessName">
+            <summary>
+            业务名称
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.Cmp.ITCompListObject.xControlAddress">
+            <summary>
+            IP地址
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.Cmp.ITCompListObject.IconUrl">
+            <summary>
+            图标URL
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.Cmp.ITCompListObject.xCanManager">
+            <summary>
+            是否可网管
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.Cmp.ITCompListObject.xCanMonitor">
+            <summary>
+            凭证是否可用
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.Cmp.ITCompListObject.xAvaState">
+            <summary>
+            可用性状态
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.Cmp.ITCompListObject.xCapState">
+            <summary>
+            容量状态
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.Cmp.ITCompListObject.xAvaF">
+            <summary>
+            可用性状态
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.Cmp.ITCompListObject.xCapF">
+            <summary>
+            容量状态
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.Cmp.ITCompListObject.xCpuState">
+            <summary>
+            CPU状态
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.Cmp.ITCompListObject.xCpuUnilization">
+            <summary>
+            CPU使用率
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.Cmp.ITCompListObject.xMemState">
+            <summary>
+            内存状态
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.Cmp.ITCompListObject.xMemUnilization">
+            <summary>
+            内存使用率
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.Cmp.ITCompListObject.xRunTime">
+            <summary>
+            系统运行时间（数据库单位：秒；此处自动转换为XX年XX月XX天XX时XX分XX秒）
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.Cmp.ITComponent.xAppHostRelation">
+            <summary>
+            应用使用主机
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.Cmp.ITComponent.xHostNetworkRelation">
+            <summary>
+            主机连接网络设备
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.Cmp.ITComponent.xCIP_SlotCount">
+            <summary>
+            槽位数
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.Cmp.ITComponent.xUsedSlotCount">
+            <summary>
+            已用槽位数
+            </summary>
+        </member>
+        <member name="T:Sonic.Web.Models.Cmp.Enveriment">
+            <summary>
+            对于一个设备，可以被图形化的部分对象放在这里，
+            这是被基础数据转换后而产生的
+            所有需要被图形化的部分都要放在这里，不管是什么设备类型，如果没有前端用ng-if直接隐藏
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.Cmp.Credence.xEncoding">
+            <summary>
+            weblogic要用
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.BaseHomerPageObject.UIPageTitle">
+            <summary>
+            页面标题
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.BaseHomerPageObject.UILeftMenuBarVisible">
+            <summary>
+            是否隐藏左侧菜单
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.BaseHomerPageObject.UILeftMenuItems">
+            <summary>
+            左侧菜单项
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.BaseHomerPageObject.IsNeedLogin">
+            <summary>
+            是否需要登录，一般情况都需要
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.BaseHomerPageObject.User">
+            <summary>
+            当前登录的用户信息
+            </summary>
+        </member>
+        <member name="T:Sonic.Web.Models.LeftMenuItem">
+            <summary>
+            单个菜单的对象
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.LeftMenuItem.MenuText">
+            <summary>
+            菜单文字
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.LeftMenuItem.MenuRightText">
+            <summary>
+            菜单右侧文字
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.LeftMenuItem.MenuRightVisible">
+            <summary>
+            是否显示右侧文字
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.LeftMenuItem.Expanded">
+            <summary>
+            展开还是折叠
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.LeftMenuItem.Items">
+            <summary>
+            子菜单
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.LeftMenuItem.HasSubMenu">
+            <summary>
+            是否有子菜单
+            </summary>
+        </member>
+        <member name="M:Sonic.Web.Models.LeftMenuItem.AddSubMenu(Sonic.Web.Models.LeftMenuItem[])">
+            <summary>
+            添加一个子菜单
+            </summary>
+            <param name="items"></param>
+        </member>
+        <member name="M:Sonic.Web.Models.LeftMenuItem.CreateMenu(System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            静态方法，添加一个实例
+            </summary>
+            <param name="MenuText"></param>
+            <param name="RightText"></param>
+            <param name="Href"></param>
+            <returns></returns>
+        </member>
+        <member name="P:Sonic.Web.Models.LeftMenuItem.Href">
+            <summary>
+            链接的地址
+            </summary>
+        </member>
+        <member name="T:Sonic.Web.Models.LeftMenuItemCollection">
+            <summary>
+            菜单集合
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.LeftMenuItemCollection.Item(System.Int32)">
+            <summary>
+            索引属性
+            </summary>
+            <param name="index"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Sonic.Web.Models.LeftMenuItemCollection.AddMenu(System.String,System.String,System.String)">
+            <summary>
+            加入自菜单对象
+            </summary>
+            <param name="MenuText">菜单文字</param>
+            <param name="RightText">右侧的小提示文字</param>
+            <returns></returns>
+        </member>
+        <member name="M:Sonic.Web.Models.LeftMenuItemCollection.AddMenu(Sonic.Web.Models.LeftMenuItem)">
+            <summary>
+            加入自菜单对象
+            </summary>
+            <param name="item">菜单对象实例</param>
+            <returns></returns>
+        </member>
+        <member name="M:Sonic.Web.Models.LeftMenuItemCollection.AddMenu(System.String,System.String,System.String,System.Boolean)">
+            <summary>
+            加入自菜单对象
+            </summary>
+            <param name="MenuText">菜单文字</param>
+            <param name="RightText">右侧的小提示文字</param>
+            <param name="ExpandedDefault">默认是展开还是折叠</param>
+            <returns></returns>
+        </member>
+        <member name="T:Sonic.Web.Models.Home.UserRequestInfo">
+            <summary>
+            服务请求-信息助手
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.Home.UserRequestInfo.xRequestTime">
+            <summary>
+            当前用户每月提交服务请求总数
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.Home.UserRequestInfo.xUserCompleteTimeData">
+            <summary>
+            当前用户提交的请求解决情况
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.Home.UserRequestInfo.xLongestSoluteTime">
+            <summary>
+            当前模板最长解决时间（小时）
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.Home.UserRequestInfo.xSLASoluteTime">
+            <summary>
+            SLA预期解决时间（小时）
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.Home.UserRequestInfo.xRequestOfWeekData">
+            <summary>
+            该类事件在本周发展趋势
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.Home.UserRequestInfo.xUserInfo">
+            <summary>
+            用户信息
+            </summary>
+        </member>
+        <member name="M:Sonic.Web.Models.Home.CurrentUser.GetDataRightWhere(System.String)">
+            <summary>
+            根据当前用户的所属角色，得到该用户的数据权限的where字句
+            </summary>
+            <param name="tableAliasName"></param>
+            <returns></returns>
+        </member>
+        <member name="P:Sonic.Web.Models.Home.CurrentUser.CustomOrgName">
+            <summary>
+            设置——首页设置——机构名称中，自定义的机构名称 
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.Home.HomeRealObject.ExpireTermialCount">
+            <summary>
+            到期终端
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.Home.HomeRealObject.ExpireContractInfo">
+            <summary>
+            到期合同
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.Home.HomeRealObject.ExpireCountAll">
+            <summary>
+            到期的对象的合计，用于显示Part
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.Home.HomeRealObject.EventAllCount">
+            <summary>
+            可用性 我的
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.Home.HomeRealObject.EventCountOfAva">
+            <summary>
+            事态可用性 我的
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.Home.HomeRealObject.EventCountOfCap">
+            <summary>
+            事态的容量 我的
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.Home.HomeRealObject.EventCountOfAvaPercent">
+            <summary>
+            可用性百分比
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.Home.HomeRealObject.ITCompProMissing">
+            <summary>
+            我负责的设备缺少属性的 
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.Home.HomeRealObject.IncidentOfMine">
+            <summary>
+            我的事件 黑红黄青
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.Home.HomeRealObject.DemandOfMine">
+            <summary>
+            我的需求 黑红黄青
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.Home.HomeRealObject.DevOfMine">
+            <summary>
+            我的开发 黑红黄青
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.Home.HomeRealObject.DefectOfMine">
+            <summary>
+            我的缺陷 黑红黄青
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.Home.HomeRealObject.MyICompCounter">
+            <summary>
+            我负责的设备情况
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.Home.ITCompProperyMissing.xITCatalog">
+            <summary>
+            缺少设备类型
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.Home.ITCompProperyMissing.xBusinessName">
+            <summary>
+            缺少业务名称
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.Home.ITCompProperyMissing.xHostName">
+            <summary>
+            缺少主机名称
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.Home.ITCompProperyMissing.xBusinessCode">
+            <summary>
+            缺少业务编码
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.Home.ITCompProperyMissing.xCIPModel">
+            <summary>
+            缺少设备型号
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.Home.ITCompProperyMissing.xCIPOPSystem">
+            <summary>
+            缺少软件版本信息
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.Home.ITCompProperyMissing.xLifeCycle">
+            <summary>
+            缺少生命周期
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.Home.ITCompProperyMissing.xBuyTime">
+            <summary>
+            缺少购买日期
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.Home.ITCompProperyMissing.xCIPServiceEndTime">
+            <summary>
+            缺少维保到期时间
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.Home.ITCompStateCounter.All">
+            <summary>
+            总数
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.Home.ITCompStateCounter.ErrorCount">
+            <summary>
+            错误数
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.Home.ITCompStateCounter.WarningCount">
+            <summary>
+            警告数
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.Home.ITCompStateCounter.SuccessCount">
+            <summary>
+            正常数
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.Home.ITCompStateCounter.FailCount">
+            <summary>
+            监视失败数
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.Home.WorkflowHHHQ.All">
+            <summary>
+            所有的
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.Home.WorkflowHHHQ.Hei">
+            <summary>
+            黑单数
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.Home.WorkflowHHHQ.Hong">
+            <summary>
+            红单数
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.Home.WorkflowHHHQ.Huang">
+            <summary>
+            黄单数
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.Home.WorkflowHHHQ.Qing">
+            <summary>
+            青单数
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.Home.WorkflowHHHQ.Wu">
+            <summary>
+            没有sla的数量
+            </summary>
+        </member>
+        <member name="T:Sonic.Web.Models.Home.UserRequestAction">
+            <summary>
+            工单中设备的借出、维修、归还
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.Home.UserRequestAction.xGuid">
+            <summary>
+            P_Guid
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.Home.UserRequestAction.xPid">
+            <summary>
+            工单P_Guid
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.Home.UserRequestAction.xITCompId">
+            <summary>
+            设备P_Guid
+            从前台往后台Post的时候，也就是新增关系的时候，此属性可以是逗号分隔的多个设备ID
+            从后台往前台的时候，只有一个设备ID
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.Home.UserRequestAction.xITCompLifeCycle">
+            <summary>
+            设备的生命周期Id（d_itcomp_lifecycle中的P_Guid，更新到C_ITComp的DF_LifeCycle）
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.Home.UserRequestAction.xITCompLifeCycleText">
+            <summary>
+            设备生命周期 txt
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.Home.UserRequestAction.xFlowType">
+            <summary>
+            流程类型
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.Home.UserRequestAction.xActionType">
+            <summary>
+            操作类型 （维修-内部，维修-外部，归还，借出）
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.Home.UserRequestAction.xActionTypeText">
+            <summary>
+            操作类型 txt
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.Home.UserRequestAction.xActionTime">
+            <summary>
+            操作时间
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.Home.UserRequestAction.xActionMemo">
+            <summary>
+            操作备注
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.Home.UserRequestAction.xRepairedUserId">
+            <summary>
+            送修人员
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.Home.UserRequestAction.xRepairedUserName">
+            <summary>
+            送修人员 txt
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.Home.UserRequestAction.xRepairType">
+            <summary>
+            维修类型
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.Home.UserRequestAction.xRepairTime">
+            <summary>
+            送修时间
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.Home.UserRequestAction.xPlanFinishTime">
+            <summary>
+            计划完成时间
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.Home.UserRequestAction.xRepairCompany">
+            <summary>
+            维修公司
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.Home.UserRequestAction.xRepairCompanyText">
+            <summary>
+            维修公司 txt
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.Home.UserRequestAction.xNumber">
+            <summary>
+            序号 （根据xFlowType编号）
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.KnowledgeMap.KnowledgeMapItem.xGuid">
+            <summary>
+            主键
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.KnowledgeMap.KnowledgeMapItem.xKnowledgeId">
+            <summary>
+            知识id
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.KnowledgeMap.KnowledgeMapItem.xRoleId">
+            <summary>
+            人员所属角色id
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.KnowledgeMap.KnowledgeMapItem.xUserId">
+            <summary>
+            人员id
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.KnowledgeMap.KnowledgeMapItem.xImportantLevel">
+            <summary>
+            对于岗位的重要程度，1、2、3（星的数目）
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.KnowledgeMap.KnowledgeMapItem.xMasteredLevel">
+            <summary>
+            该人员掌握该知识的程度，1（蓝色）、熟知，且能够创新；2（灰色）、知识且有一定的经验，可以指导别人；3（黄色）、了解这项知识，但不足以指导别人；4（棕色）、只是听说过，不清楚原理。
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.Document.DocumentPageCondition.xPageIndex">
+            <summary>
+            当前页号
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.Document.DocumentPageCondition.xPageItemCount">
+            <summary>
+            每页显示记录数
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.Document.DocumentPageCondition.xAllDataCount">
+            <summary>
+            记录总数
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.Document.DocumentPageCondition.xAllPageCount">
+            <summary>
+            总页数
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.Document.DocumentPageCondition.SearchCondition">
+            <summary>
+            查询条件
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.Document.DocumentSearchCondition.KeyWord">
+            <summary>
+            查询关键字
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.Document.DocumentSearchCondition.GroupSearchItem">
+            <summary>
+            条件集合
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.Document.DocumentSearchCondition.xSeachAndOr">
+            <summary>
+            分组条件
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.ITIL.ItilRelationChooserSearchItem.xKeyword">
+            <summary>
+            搜索关键字
+            支持多个，以“空格”分隔
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.ITIL.MyWorkSpaceObjects.CustomOrgName">
+            <summary>
+            设置——首页设置——机构名称中，自定义的机构名称 
+            </summary>
+        </member>
+        <member name="T:Sonic.Web.Models.ITIL.xPatrolCheckMainPage">
+            <summary>
+            判断主页巡检按钮
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.ITIL.xPatrolCheckMainPage.IsAllowPatrol">
+            <summary>
+            是否可以巡检
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.ITIL.xPatrolCheckMainPage.PatrolCount">
+            <summary>
+            已巡检数量
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.ITIL.xPatrolCheckMainPage.UnPatrolCount">
+            <summary>
+            未巡检数量
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.ITIL.xPatrolCheckMainPage.UnPatrolTempList">
+            <summary>
+            未巡检模板对象集合
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.ITIL.xPatrolCheckMainPage.PatrolTimeTitle">
+            <summary>
+            负责巡检的时间段
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.ITIL.TaskOne.xTypicalTask">
+            <summary>
+            典型任务(码表)
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.ITIL.TaskWizard.xTypicalTask">
+            <summary>
+            典型任务(码表)
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.ITIL.EventOne.xDetail_F">
+            <summary>
+            从detail里解出的阈值
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.ITIL.EventOne.xDetail_C">
+            <summary>
+            从detail里解出的与阈值匹配的指标当前值
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.ITIL.EventOne.xComRole">
+            <summary>
+            设备级别
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.ITIL.EventOne.xChannelModule">
+            <summary>
+            事态来源
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.Knowledge.KnowledgeItem.xKeyword">
+            <summary>
+            关键字
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.Knowledge.KnowledgeItem.xCategory">
+            <summary>
+            知识类别，码表
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.Knowledge.KnowledgeItem.xCustomCategory">
+            <summary>
+            用户自定义分类，码表
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.Knowledge.KnowledgeItem.xLifeCycle">
+            <summary>
+            生命周期，码表
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.Knowledge.KnowledgeItem.xOrg">
+            <summary>
+            组织
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.Knowledge.KnowledgeItem.xPropertyRight">
+            <summary>
+            产权，机构
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.Knowledge.KnowledgeItem.xVersion">
+            <summary>
+            版本号
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.Knowledge.KnowledgeItem.xCorrelation">
+            <summary>
+            相关性
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.Knowledge.KnowledgeItem.xRecognized">
+            <summary>
+            是否被组织认定
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.Knowledge.KnowledgeItem.xUnique">
+            <summary>
+            独特性，码表，本企业，本行业
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.Knowledge.KnowledgeItem.xImportantLevel">
+            <summary>
+            重要级别，1、2、3（星的数目）
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.Knowledge.KnowledgeItem.xDevExpert">
+            <summary>
+            研发专家
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.Knowledge.KnowledgeItem.xImpExpert">
+            <summary>
+            实施专家
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.Knowledge.KnowledgeItemInWizard.xCategory">
+            关键字
+        </member>
+        <member name="P:Sonic.Web.Models.Knowledge.KnowledgeItemInWizard.xCustomCategory">
+            知识类别，码表
+        </member>
+        <member name="P:Sonic.Web.Models.Knowledge.KnowledgeItemInWizard.xLifeCycle">
+            用户自定义分类，码表
+        </member>
+        <member name="P:Sonic.Web.Models.Knowledge.KnowledgeItemInWizard.xOrg">
+            生命周期，码表
+        </member>
+        <member name="P:Sonic.Web.Models.Knowledge.KnowledgeItemInWizard.xPropertyRight">
+            组织
+        </member>
+        <member name="P:Sonic.Web.Models.Knowledge.KnowledgeItemInWizard.xVersion">
+            产权，机构
+        </member>
+        <member name="P:Sonic.Web.Models.Knowledge.KnowledgeItemInWizard.xCorrelation">
+            版本号
+        </member>
+        <member name="P:Sonic.Web.Models.Knowledge.KnowledgeItemInWizard.xRecognized">
+            相关性
+        </member>
+        <member name="P:Sonic.Web.Models.Knowledge.KnowledgeItemInWizard.xUnique">
+            是否被组织认定
+        </member>
+        <member name="P:Sonic.Web.Models.Knowledge.KnowledgeItemInWizard.xImportantLevel">
+            独特性，码表，本企业，本行业
+        </member>
+        <member name="P:Sonic.Web.Models.Knowledge.KnowledgeItemInWizard.xGroupName">
+            重要级别，1、2、3（星的数目）
+        </member>
+        <member name="P:Sonic.Web.Models.KPI_Show.ChartDataItem.text">
+            <summary>
+            名称
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.KPI_Show.ChartDataItem.value">
+            <summary>
+            值
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.KPI_Show.ChartDataItem.total">
+            <summary>
+            总值
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.KPI_Show.ChartDataItem.valueOfPer">
+            <summary>
+            值占总数百分比（用于html中的width or height）
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.KPI_Show.ChartDataItem.color">
+            <summary>
+            颜色
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.KPI_Show.ChartDataItem.linkTo">
+            <summary>
+            点击，跳转Url
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.KPI_Show.ScoreColumnItem.xShortText">
+            <summary>
+            月份
+            </summary>
+        </member>
+        <member name="T:Sonic.Web.Models.Maps.MapElement">
+            <summary>
+            地图中元素（每一个块，区、县、市）的标识
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.Maps.MapElement.xGuid">
+            <summary>
+            地图中元素（每一个块，区、县、市）的标识
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.Maps.MapElement.xTitle">
+            <summary>
+            元素名称
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.Maps.MapElement.xPid">
+            <summary>
+            父ID（地图ID）
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.Maps.MapElement.ITCompIdList">
+            <summary>
+            关联的IT组件集合
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.Maps.MapElement.State">
+            <summary>
+            状态Smart.Core.Enums.MonitorState（关联的IT组件的状态最大值）
+            </summary>
+        </member>
+        <member name="T:Sonic.Web.Models.Maps.MapCatalog">
+            <summary>
+            选择地图模版用
+            </summary>
+        </member>
+        <member name="T:Sonic.Web.Models.Maps.MapObject">
+            <summary>
+            地图实体
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.Maps.MapObject.xGuid">
+            <summary>
+            地图ID
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.Maps.MapObject.xPid">
+            <summary>
+            父视图ID
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.Maps.MapObject.xPidTitle">
+            <summary>
+            父视图名称
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.Maps.MapObject.xTitle">
+            <summary>
+            地图标题
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.Maps.MapObject.xFileUri">
+            <summary>
+            地图svg文件路径（相对路径）
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.Maps.MapObject.xCreateTime">
+            <summary>
+            创建时间
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.Maps.MapObject.xElementList">
+            <summary>
+            元素集合
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.Maps.MapObject.xDataRightW">
+            <summary>
+            可读权限
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.Maps.MapObject.xDataRightR">
+            <summary>
+            可写权限
+            </summary>   
+        </member>
+        <member name="P:Sonic.Web.Models.Maps.MapObject.xOrder">
+            <summary>
+            序号
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.Maps.MapOtherData.xAvaErrorCount">
+            <summary>
+            可用性异常设备数
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.Maps.MapOtherData.xAvaErrorPercent">
+            <summary>
+            可用性异常占总设备数的百分比
+            </summary>
+        </member>
+        <member name="T:Sonic.Web.Models.NI.Models.Dashboard.ServiceOverViewModels">
+            <summary>
+            服务看板概述Html与Controllers交互模型对象
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.NI.Models.Dashboard.ServiceOverViewModels.xAvaRate">
+            <summary>
+            服务可用率, 暂时定为统计7天
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.NI.Models.Dashboard.ServiceOverViewModels.xAvaRateBeginDateTime">
+            <summary>
+            统计服务可用率的起始日期，暂时显示格式为yyyy-MM-dd
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.NI.Models.Dashboard.ServiceOverViewModels.xAvaRateEndDateTime">
+            <summary>
+            统计服务可用率的结束日期，暂时显示格式为yyyy-MM-dd
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.NI.Models.Dashboard.ServiceOverViewModels.xIOPeak">
+            <summary>
+            服务吞吐量峰值
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.NI.Models.Dashboard.ServiceOverViewModels.xIOPeakDateTime">
+            <summary>
+            服务吞吐量峰值出现的时间，建议格式yyyy-MM-dd HH:mm
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.NI.Models.Dashboard.ServiceOverViewModels.xIOMin">
+            <summary>
+            服务吞吐量最小值
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.NI.Models.Dashboard.ServiceOverViewModels.xIOMinDateTime">
+            <summary>
+            服务吞吐量最小值出现的时间，建议格式yyyy-MM-dd HH:mm
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.NI.Models.Dashboard.ServiceOverViewModels.xIOChartLineData">
+            <summary>
+            服务吞吐量7天数据的趋势
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.NI.Models.Dashboard.ServiceOverViewModels.xIncidentRunCount">
+            <summary>
+            该服务下的事件正在运行的数量
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.NI.Models.Dashboard.ServiceOverViewModels.xIncidentSumCount">
+            <summary>
+            该服务下的事件总数
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.NI.Models.Dashboard.ServiceOverViewModels.xIncidentCloseCount">
+            <summary>
+            该服务下的事件已关闭的总数
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.NI.Models.Dashboard.ServiceOverViewModels.xIncidentCloseRate">
+            <summary>
+            该服务下的事件已关闭占总数的比例
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.NI.Models.Dashboard.ServiceOverViewModels.xChangeRunCount">
+            <summary>
+            该服务下的变更正在运行的数量
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.NI.Models.Dashboard.ServiceOverViewModels.xChangeSumCount">
+            <summary>
+            该服务下的变更总数
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.NI.Models.Dashboard.ServiceOverViewModels.xChangeCloseCount">
+            <summary>
+            该服务下的变更已关闭的总数
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.NI.Models.Dashboard.ServiceOverViewModels.xChangeCloseRate">
+            <summary>
+            该服务下的变更已关闭占总数的比例
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.NI.Models.Dashboard.ServiceOverViewModels.xDemandRunCount">
+            <summary>
+            该服务下的需求正在运行的数量
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.NI.Models.Dashboard.ServiceOverViewModels.xDemandSumCount">
+            <summary>
+            该服务下的需求总数
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.NI.Models.Dashboard.ServiceOverViewModels.xDemandCloseCount">
+            <summary>
+            该服务下的需求已关闭的总数
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.NI.Models.Dashboard.ServiceOverViewModels.xDemandCloseRate">
+            <summary>
+            该服务下的需求已关闭占总数的比例
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.NI.Models.Dashboard.ServiceOverViewModels.xEventTaDayCount">
+            <summary>
+            今日事态总数
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.NI.Models.Dashboard.ServiceOverViewModels.xEventTaDayAvaCount">
+            <summary>
+            今日可用性事态
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.NI.Models.Dashboard.ServiceOverViewModels.xEventTaDayCapCount">
+            <summary>
+            今日容量事态
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.NI.Models.Dashboard.ServiceOverViewModels.xEventTaDayCloseCount">
+            <summary>
+            今日产生的事态关闭数量
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.NI.Models.Dashboard.ServiceOverViewModels.xEventTaDayCloseRate">
+            <summary>
+            今日产生的事态关闭比率
+            </summary>
+        </member>
+        <member name="T:Sonic.Web.Models.NI.Models.Dashboard.ServiceOverViewITCompItemModels">
+            <summary>
+            服务看板中支撑服务设备列表中的设备模型对象
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.NI.Models.Dashboard.ServiceOverViewWzardItemModels.xGuid">
+            <summary>
+            服务目录Id
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.NI.Models.Dashboard.ServiceOverViewWzardItemModels.xTitle">
+            <summary>
+            服务目录标题
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.NI.Models.Dashboard.ServiceOverViewWzardItemModels.xWorkFlowType">
+            <summary>
+            服务目录类型
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.NI.Models.Dashboard.ServiceOverViewWzardItemModels.xRequestRate">
+            <summary>
+            通过该服务目录进行请求的数量占该服务所有请求数量的百分比
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.NI.Models.ListQueryModel`1.Header">
+            <summary>
+            标题
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.NI.Models.ListQueryModel`1.ViewDataMapping">
+            <summary>
+            数据表
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.NI.Models.ListQueryModel`1.Type">
+            <summary>
+            模块名称(对应\Sonic.Server\SonicWebV6\Config\CMDB\UIMapping.xml中每个List的Type)
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.NI.Models.ListQueryModel`1.RowTemplete">
+            <summary>
+            行模板，存放从xml配置文件读出的信息
+            </summary>
+        </member>
+        <member name="T:Sonic.Web.Models.NI.Models.ListQueryItemModel">
+            <summary>
+            xQueryType=特殊值不处理的举例(该功能主要用于sql语句的重用，可以直接生成一个ListQueryModel对象，然后就获取该对象对应的where子句)：
+             var _con = {};
+             _con.xQueryField = "D_EndTime";//没实际用途，就是标识一下
+             _con.xQueryType = "特殊值不处理";//该类型不拼字段名
+             _con.xQueryValue = "2015-01-01";
+             _con.xQuerySqlKey = "到期合同";
+             _searchPanelContion.push(_con);
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.NI.Models.Monitor.DeviceListRowModel.xGuid">
+            <summary>
+            主键
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.NI.Models.Monitor.DeviceListRowModel.xHostName">
+            <summary>
+            主机名称
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.NI.Models.Monitor.DeviceListRowModel.xBusinessName">
+            <summary>
+            业务名称
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.NI.Models.Monitor.DeviceListRowModel.xControlAddress">
+            <summary>
+            IP地址
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.NI.Models.Monitor.DeviceListRowModel.IconUrl">
+            <summary>
+            图标URL
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.NI.Models.Monitor.DeviceListRowModel.xCanManager">
+            <summary>
+            是否可网管
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.NI.Models.Monitor.DeviceListRowModel.xCanMonitor">
+            <summary>
+            凭证是否可用
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.NI.Models.Monitor.DeviceListRowModel.xAvaState">
+            <summary>
+            可用性状态
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.NI.Models.Monitor.DeviceListRowModel.xCapState">
+            <summary>
+            容量状态
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.NI.Models.Monitor.DeviceListRowModel.xAvaF">
+            <summary>
+            可用性状态
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.NI.Models.Monitor.DeviceListRowModel.xCapF">
+            <summary>
+            容量状态
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.NI.Models.Monitor.DeviceListRowModel.xCpuState">
+            <summary>
+            CPU状态
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.NI.Models.Monitor.DeviceListRowModel.xCpuUnilization">
+            <summary>
+            CPU使用率
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.NI.Models.Monitor.DeviceListRowModel.xMemState">
+            <summary>
+            内存状态
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.NI.Models.Monitor.DeviceListRowModel.xMemUnilization">
+            <summary>
+            内存使用率
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.NI.Models.Monitor.DeviceListRowModel.xRunTime">
+            <summary>
+            系统运行时间（数据库单位：秒；此处自动转换为XX年XX月XX天XX时XX分XX秒）
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.NI.Models.Tpl.AdminHeaderModel.DDWCL_WorkCount">
+            <summary>
+            等待我处理的总数
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.NI.Models.Tpl.AdminHeaderModel.JZPD_WorkCount">
+            <summary>
+            集中派单的总数
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.NI.Models.Tpl.AdminHeaderModel.ZDJD_WorkCount">
+            <summary>
+            主动接单的总数
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.NI.Models.Tpl.AdminHeaderModel.CountIncident">
+            <summary>
+            等待我处理的-事件数
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.NI.Models.Tpl.AdminHeaderModel.CountChange">
+            <summary>
+            等待我处理的-变更数
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.NI.Models.Tpl.AdminHeaderModel.CountProblem">
+            <summary>
+            等待我处理的-问题数
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.NI.Models.Tpl.AdminHeaderModel.CountDefect">
+            <summary>
+            等待我处理的-缺陷数
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.NI.Models.Tpl.AdminHeaderModel.CountDevelopment">
+            <summary>
+            等待我处理的-开发数
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.NI.Models.Tpl.AdminHeaderModel.CountRequirement">
+            <summary>
+            等待我处理的-需求数
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.NI.Models.Tpl.AdminHeaderModel.CountTask">
+            <summary>
+            等待我处理的-任务数
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.NI.Models.Tpl.AdminHeaderModel.CountEvent">
+            <summary>
+            等待我处理的-事态数
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.NI.Models.Tpl.AdminHeaderModel.CountProject">
+            <summary>
+            等待我处理的-项目数
+            </summary>
+        </member>
+        <member name="M:Sonic.Web.Models.NI.Models.Tpl.AdminLeftMenuModel.AddMenu(System.String,System.String,System.String)">
+            <summary>
+            加入自菜单对象
+            </summary>
+            <param name="MenuText">菜单文字</param>
+            <param name="RightText">右侧的小提示文字</param>
+            <returns></returns>
+        </member>
+        <member name="M:Sonic.Web.Models.NI.Models.Tpl.AdminLeftMenuModel.AddMenu(Sonic.Web.Models.NI.Models.Tpl.LeftMenuItem)">
+            <summary>
+            加入自菜单对象
+            </summary>
+            <param name="item">菜单对象实例</param>
+            <returns></returns>
+        </member>
+        <member name="M:Sonic.Web.Models.NI.Models.Tpl.AdminLeftMenuModel.AddMenu(System.String,System.String,System.String,System.Boolean)">
+            <summary>
+            加入自菜单对象
+            </summary>
+            <param name="MenuText">菜单文字</param>
+            <param name="RightText">右侧的小提示文字</param>
+            <param name="ExpandedDefault">默认是展开还是折叠</param>
+            <returns></returns>
+        </member>
+        <member name="T:Sonic.Web.Models.NI.Models.Tpl.LeftMenuItem">
+            <summary>
+            单个菜单的对象
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.NI.Models.Tpl.LeftMenuItem.MenuText">
+            <summary>
+            菜单文字
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.NI.Models.Tpl.LeftMenuItem.MenuRightText">
+            <summary>
+            菜单右侧文字
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.NI.Models.Tpl.LeftMenuItem.Expanded">
+            <summary>
+            展开还是折叠
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.NI.Models.Tpl.LeftMenuItem.Items">
+            <summary>
+            子菜单
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.NI.Models.Tpl.LeftMenuItem.HasSubMenu">
+            <summary>
+            是否有子菜单
+            </summary>
+        </member>
+        <member name="M:Sonic.Web.Models.NI.Models.Tpl.LeftMenuItem.AddSubMenu(Sonic.Web.Models.NI.Models.Tpl.LeftMenuItem[])">
+            <summary>
+            添加一个子菜单
+            </summary>
+            <param name="items"></param>
+        </member>
+        <member name="M:Sonic.Web.Models.NI.Models.Tpl.LeftMenuItem.CreateMenu(System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            静态方法，添加一个实例
+            </summary>
+            <param name="MenuText"></param>
+            <param name="RightText"></param>
+            <param name="Href"></param>
+            <returns></returns>
+        </member>
+        <member name="P:Sonic.Web.Models.NI.Models.Tpl.LeftMenuItem.Href">
+            <summary>
+            链接的地址
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.RealDataShow.RealDataShowObject.xNetworkErrorITComp">
+            <summary>
+            故障的设备，xT1：图标，xT2：IP，xT3：责任人，xT4：事态数，ChartData：故障监视项
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.RealDataShow.RealDataShowObject.xCpuUnilization">
+            <summary>
+            CPU使用率Top 10, xT1：IP，xT2：业务名-主机名，xT3：CPU使用率，xT4：P_Guid，xT5:图标
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.RealDataShow.RealDataShowObject.xMemUnilization">
+            <summary>
+            内存使用率Top 10, xT1：IP，xT2：业务名-主机名，xT3：内存使用率，xT4：P_Guid，xT5:图标，
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.RealDataShow.RealDataShowObject.xInterfaceUnilization">
+            <summary>
+            接口带宽利用率Top 10, xT1：IP，xT2：业务名-主机名-接口名，xT3：带宽利用率，xT4：P_Guid，xT5:totalSpeed, xT6:图标，
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.RealDataShow.RealDataShowObject.xNetWorkEnvironment">
+            <summary>
+            网络 - 环境
+            xT1：电源错误数量，xT2：风扇错误数量，xT3：温度错误数量
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.RealDataShow.RealDataShowObject.xOtherErrorITComp">
+            <summary>
+            故障的设备，xT1：图标，xT2：IP，xT3：责任人，xT4：事态数，ChartData：故障监视项
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.RealDataShow.RealDataShowObject.xAppConnection">
+            <summary>
+            故障的设备，xT1：IP，xT2：今日峰值，xT3：最新值，ChartData：趋势数据
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.RealDataShow.RealDataShowObject.xProcessCpu">
+            <summary>
+            进程CPU Top 10, xT1：IP-业务名-主机名，xT2：业务名-主机名，xT3：进程CPU，xT4：P_Guid，xT5:图标
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.RealDataShow.RealDataShowObject.xProcessMemory">
+            <summary>
+            进程Memory Top 10, xT1：IP-业务名-主机名，xT2：业务名-主机名，xT3：进程Memory，xT4：P_Guid，xT5:图标
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.RealDataShow.RealDataShowObject.xDiskUnilization">
+            <summary>
+            磁盘容量 Top 10, xT1：IP-业务名-主机名，xT2：业务名-主机名，xT3：磁盘容量，xT4：P_Guid，xT5:图标
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.RealDataShow.RealDataShowObject.xIncidentInfo">
+            <summary>
+            xT1:0 请求个数(请求人不是空，创建人和请求人不一致)， xT2: 事件个数， xT3: 处理中， xT4:已完成
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.RealDataShow.RealDataShowObject.xWaitIncidentCount">
+            <summary>
+            人员未完成事件数量
+            xT1:姓名，xT2:待办请求，xT3：待办事件，xT4：代办故障
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.RealDataShow.RealDataShowObject.xWorkItemDescList">
+            <summary>
+            事件排序 xT1：责任角色【责任人】，xT2：摘要，xT3：开始时间，xD1：SLA的百分比，xT5:P_Guid
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.RealDataShow.RealDataShowObject.xIncidentFlowStateCount">
+            <summary>
+            各状态事件数量
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.RealDataShow.RealDataShowObject.xWorkItemByUser">
+            <summary>
+            按人员查看事件积压情况
+            Key:人员ID（没有用人员姓名，怕重名）
+            Value:xT1：责任角色【责任人】，xT2：摘要，xT3：开始时间，xD1：SLA的百分比，xT5:P_Guid
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.RealDataShow.RealDataShowObject.xIncidentBacklogByService">
+            <summary>
+            按服务视角查看事件积压
+            xT1:服务名称，xT2:服务ID，xT3：未解决的事件数量（按流程的结束状态过滤）
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.RealDataShow.RealDataShowObject.xIncidentBacklog">
+            <summary>
+            事件积压。xT1：绿单，xT2：黄单，xT3：红单，xT4：黑单；xD1：绿单百分比，xD2：黄单百分比，xD3：红单百分比，xD4：黑单百分比
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.RealDataShow.RealDataShowObject.xEventBacklog">
+            <summary>
+            事态积压。xT1：绿单，xT2：黄单，xT3：红单，xT4：黑单；xD1：绿单百分比，xD2：黄单百分比，xD3：红单百分比，xD4：黑单百分比
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.RealDataShow.RealDataShowObject.xIncidentSLAFinishRate">
+            <summary>
+            今日SLA达标率
+            SLA达标：不是黑单就是达标
+            xT1:今日产生且完成事件，xT2：今日产生且SLA达标事件，xT3：xT2/xT1*100
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.RealDataShow.RealDataShowObject.xIncidentBacklogByWizard">
+            <summary>
+            按业务向导查看事件积压
+            第0个元素是：共有xT1个事件，完成了xT2个，完成率xT3；第1个元素开始循环：xT1：向导名称，xT2：共有几个，xT3：完成几个
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.RealDataShow.RealDataShowObject.xErrorITCompCount">
+            <summary>
+            故障设备的数量
+            xT1 红的数量， xT2 黄的数量,  xT3 凭证不通的数量,  xT4 平均处理时间，格式 xx:xx:xx
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.RealDataShow.RealDataShowObject.xEventBacklogByUser">
+            <summary>
+            按人员查看事态积压情况
+            Key:人员ID（没有用人员姓名，怕重名）
+            Value:xT1：责任角色或者责任人，xT2：摘要，xT3：开始时间，xD1：SLA的百分比，xT5:P_Guid
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.ServiceModel.ServiceModelNode.xGuid">
+            <summary>
+            主键
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.ServiceModel.ServiceModelNode.xViewId">
+            <summary>
+            所属视图ID
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.ServiceModel.ServiceModelNode.xNodeType">
+            <summary>
+            结点类型
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.ServiceModel.ServiceModelNode.xText">
+            <summary>
+            文字
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.ServiceModel.ServiceModelNode.xFont">
+            <summary>
+            字体
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.ServiceModel.ServiceModelNode.xColor">
+            <summary>
+            文字前景色
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.ServiceModel.ServiceModelNode.xITCompId">
+            <summary>
+            绑定IT组件ID
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.ServiceModel.ServiceModelNode.xIcon">
+            <summary>
+            IT组件图标
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.ServiceModel.ServiceModelNode.xIP">
+            <summary>
+            IP
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.ServiceModel.ServiceModelNode.xBusinessName">
+            <summary>
+            业务名称
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.ServiceModel.ServiceModelNode.xImageSrc">
+            <summary>
+            图片地址
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.ServiceModel.ServiceModelNode.xBackground">
+            <summary>
+            背景色
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.ServiceModel.ServiceModelNode.xCPU">
+            <summary>
+            CPU值
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.ServiceModel.ServiceModelNode.xMem">
+            <summary>
+            内存值
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.ServiceModel.ServiceModelNode.xRunTime">
+            <summary>
+            运行时
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.ServiceModel.ServiceModelNode.xIO">
+            <summary>
+            IO读速率
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.ServiceModel.ServiceModelNode.xPointX">
+            <summary>
+            坐标：X
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.ServiceModel.ServiceModelNode.xPointY">
+            <summary>
+            坐标：Y
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.ServiceModel.ServiceModelNode.xWidth">
+            <summary>
+            宽度
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.ServiceModel.ServiceModelNode.xHeight">
+            <summary>
+            高度
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.ServiceModel.ServiceModelNode.AvaState">
+            <summary>
+            可用性状态
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.ServiceModel.ServiceModelNode.CapState">
+            <summary>
+            容量状态
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.ServiceModel.ServiceModelNode.state">
+            <summary>
+            状态
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.ServiceModel.ServiceModelNode.PropertyTitle">
+            <summary>
+            属性名称
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.ServiceModel.ServiceModelNode.PropertyValue">
+            <summary>
+            属性值
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.ServiceModel.ServiceModelNode.PropertyState">
+            <summary>
+            属性状态
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.ServiceModel.ServiceModelNode.PropertyInfo">
+            <summary>
+            属性最小、最大值
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.Shared.AutoEditorObject.xOPTWhenWF">
+            <summary>
+            这个属性只有在流程中传递CMDB数据的时候才有用
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.Shared.LayoutGroup.xViewOnly">
+            <summary>
+            只在ViewOne中显示（如果组上配置了，无论LayoutRow上是否配置，都继承组的这一属性）
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.Shared.LayoutGroup.xNoView">
+            <summary>
+            不在ViewOne中显示
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.Shared.LayoutGroup.xCanBatchEdit">
+            <summary>
+            该字段是否允许批量编辑
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.Shared.LayoutRow.xIndex">
+            <summary>
+            序号
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.Shared.LayoutRow.xCanBatchEdit">
+            <summary>
+            该字段是否允许批量编辑
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.Shared.LayoutRow.xViewOnly">
+            <summary>
+            只在ViewOne中显示
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.Shared.LayoutRow.xNoView">
+            <summary>
+            不在ViewOne中显示
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.Shared.LayoutRow.xCanShowInList">
+            <summary>
+            是否可以显示在列表中
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.Shared.LayoutRow.xIsShowInList">
+            <summary>
+            是否显示在列表中
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.Shared.PostUpdateObject.xCount">
+            <summary>
+            部件数量（只适用于部件）
+            </summary>
+        </member>
+        <member name="T:Sonic.Web.Models.Shared.ChartModel">
+            <summary>
+            图表数据对象
+            </summary>
+        </member>
+        <member name="T:Sonic.Web.Models.Shared.ChartSeriesModel">
+            <summary>
+            图表Series数据对象
+            </summary>
+        </member>
+        <member name="T:Sonic.Web.Models.Shared.ChartDataPointModel">
+            <summary>
+            图表DataPoint数据对象
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.Shared.ListPageCondition.xSearchPanelCondition">
+            <summary>
+            组合查询用该属性
+            </summary>
+        </member>
+        <member name="M:Sonic.Web.Models.Shared.SearchCondition.Create(Sonic.Web.Models.Shared.SearchType,System.String,System.String,System.Boolean)">
+             <summary>
+            当xType = GroupSearch,GroupSearchItem 才会有值
+            当xType = Normal,xData 起到了唯一标识的作用
+            当xType = FlowState,xData是对应数据库的流程状态
+            当xType = KeyWord,xData是用户从客户端输入的查询关键字
+             </summary>
+             <param name="xType"></param>
+             <param name="xText"></param>
+             <param name="xData"></param>
+             <param name="xIsFullRow">在界面是不是占两列</param>
+             <returns></returns>
+        </member>
+        <member name="P:Sonic.Web.Models.Sys.ListItem.xTableName">
+            <summary>
+            项所属表名（insert、update和delete时用）
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.Sys.ListItem.xGuid">
+            <summary>
+            新增时不能赋值，修改时必须赋值，错了会影响查重
+            </summary>
+        </member>
+        <member name="T:Sonic.Web.Models.SYS.DevDoc">
+            <summary>
+            研发撰写的开发帮助文档
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.SYS.DevDoc.xModule">
+            <summary>
+            所属模块，跟系统中服务的模块关联
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.SYS.DevDoc.xSevice">
+            <summary>
+            所属系统，跟IT服务关联
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.SYS.DevDoc.xSubTitle">
+            <summary>
+            存放页面的名字
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.SYS.DevDoc.xContent">
+            <summary>
+            文档内容
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.SYS.DevDoc.xTitle">
+            <summary>
+            文档标题
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.SYS.DevDoc.xMainDeveloper">
+            <summary>
+            主要的开发人员
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.SYS.DevDoc.xTeamDeveloper">
+            <summary>
+            参与的开发人员
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.SYS.Snmpd.IsAutoRunMacScan">
+            <summary>
+            是否启用MAC地址扫描后台自动 bool
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.SYS.Snmpd.AutoRunMacScanFreqency">
+            <summary>
+            MAC地址扫描 间隔频率
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.SYS.Snmpd.DataBaseType">
+            <summary>
+             数据库类型 { get; set; }   string
+             </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.SYS.Snmpd.ConnectionString">
+            <summary>
+            数据库连接串(未解密) { get; set; }   string
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.SYS.Snmpd.MonitorProcess">
+            <summary>
+            监视器进程数 { get; set; }   int
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.SYS.Snmpd.MonitorThreads">
+            <summary>
+            监视器线程数 { get; set; }   int
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.SYS.Snmpd.ThreadSleep">
+            <summary>
+            监视器线程睡眠时间ms { get; set; }   int
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.SYS.Snmpd.ErrorExecuteCount">
+            <summary>
+            监视器错误后执行次数 { get; set; }   int
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.SYS.Snmpd.IsFailIncident">
+            <summary>
+            未知状态是否产生事件 { get; set; }   bool
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.SYS.Snmpd.DiscoveryThreads">
+            <summary>
+            Mac检查、网络发现线程数 { get; set; }   int
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.SYS.Snmpd.MacCheckTime">
+            <summary>
+            Mac检查轮询时间ms { get; set; }   int
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.SYS.Snmpd.LeaveDay">
+            <summary>
+            数据保留天数 { get; set; }   int
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.SYS.Snmpd.LeaveDayOK">
+            <summary>
+            数据保留天数入库 { get; set; }   用于计划任务int
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.SYS.Snmpd.IsMacIncident">
+            <summary>
+            发现非法mac是否产生事件 { get; set; }   bool
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.SYS.Snmpd.IsCredenceInc">
+            <summary>
+            凭证异常是否产生事件 { get; set; }   bool
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.SYS.Snmpd.IncStopTiem">
+            <summary>
+            事态停止时间段，如19-8(晚19点到第二天8点) { get; set; }   string
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.SYS.Snmpd.MailTimeOut">
+            <summary>
+            邮件发送超时时间ms { get; set; }   int
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.SYS.Snmpd.MailSMTP">
+            <summary>
+            SMTP服务器地址 { get; set; }   string
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.SYS.Snmpd.MailEmail">
+            <summary>
+            发件地址 { get; set; }   string
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.SYS.Snmpd.MailUser">
+            <summary>
+            发件地址用户名 { get; set; }   string
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.SYS.Snmpd.MailPass">
+            <summary>
+            发件地址密码 { get; set; }   string
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.SYS.Snmpd.MailPort">
+            <summary>
+            SMTP端口 { get; set; }   int.如：gmail是465和587
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.SYS.Snmpd.MailIsSSL">
+            <summary>
+            SMTP是否使用安全套接字层 { get; set; }   bool 0 { get; set; }   1
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.SYS.Snmpd.SMSTpye">
+            <summary>
+            int
+            0 短信猫WAVECOM-Q2403A { get; set; }   读COM口
+            1 WebService 
+            2 华为短信平台
+            3 移动Mas
+            4 第三方数据库接入
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.SYS.Snmpd.SMSComPort">
+             <summary>
+            SMS Com端口号 { get; set; }   int
+             </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.SYS.Snmpd.SMSServer">
+            <summary>
+            SMS 短信服务地址 { get; set; }   string
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.SYS.Snmpd.SMSEid">
+            <summary>
+            SMS 短信服务企业代码 { get; set; }   string
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.SYS.Snmpd.SMSUser">
+            <summary>
+            SMS 短信服务用户名 { get; set; }   string
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.SYS.Snmpd.SMSPass">
+            <summary>
+            SMS 短信服务密码 { get; set; }   string
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.SYS.Snmpd.SMSDBConn">
+            <summary>
+            SMS 第三方接入库连接串 { get; set; }   string
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.SYS.Snmpd.SMSDBType">
+            <summary>
+            SMS 第三方接入库类型 { get; set; }   string
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.SYS.Snmpd.SMSDBTSql">
+            <summary>
+            SMS 第三方接入库TSql语句 { get; set; }   string
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.SYS.Snmpd.SyslogPort">
+            <summary>
+            Syslog监听端口 { get; set; }   int
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.SYS.Snmpd.SyslogPriority">
+            <summary>
+            Syslog Priority级别 { get; set; }   string eg:0 { get; set; }   1 { get; set; }   2
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.SYS.Snmpd.SyslogPriorityShow">
+            <summary>
+            Syslog Priority的显示级别 { get; set; }   string eg:0 { get; set; }   1 { get; set; }   2
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.SYS.Snmpd.RequestRole">
+            <summary>
+            服务请求责任角色ID { get; set; }   string
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.SYS.Snmpd.IncidentCustomRole">
+            <summary>
+            第三方事件责任角色ID { get; set; }   string
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.SYS.Snmpd.RightRun">
+            <summary>
+            后台进程 { get; set; }   string
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.SYS.Snmpd.RightSystem">
+            <summary>
+            系统许可(未解密) { get; set; }   string
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.SYS.Snmpd.SystemTitle">
+            <summary>
+            系统显示标题 { get; set; }   string
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.SYS.Snmpd.SystemLogo">
+            <summary>
+            系统自定义Logo { get; set; }   image
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.SYS.Snmpd.RunningPath">
+            <summary>
+            安装路径
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.SYS.Snmpd.NISystemUserPath">
+            <summary>
+            NI的系统用户的临时文件夹路径
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.SYS.Snmpd.MSID">
+            <summary>
+            分布式监视服务器的唯一标识 string
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.SYS.Snmpd.ReportChartWidth">
+            <summary>
+            图表的宽度
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.SYS.Snmpd.ReportChartHeight">
+            <summary>
+            图表的高度
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.SYS.Snmpd.IsReLogin">
+            <summary>
+            是否允许注销（默认允许）
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.SYS.Snmpd.IsEditPassword">
+            <summary>
+            是否允许修改密码（默认允许）
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.SYS.Snmpd.IsStrongPassword">
+            <summary>
+            是否启用强密码（默认不启用）
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.SYS.Snmpd.IsCheckIPDuplicate">
+            <summary>
+            添加设备、添加IP时，是否判断IP重复，默认是true检查
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.SYS.Snmpd.BarCodeTemplate">
+            <summary>
+            条形码模板
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.SYS.WorkflowWzard.xServiceName">
+            <summary>
+            主服务名称
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.SYS.WorkflowWzard.xRelationalRole">
+            <summary>
+            相关角色
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.SYS.WorkflowWzard.xSubmitType">
+            <summary>
+            提交类型
+            1 只为自己提交 
+            2 只为他人提交
+            3 即可以为自己也可以为他人提交
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.SYS.WorkflowWzard.xCmdbOpt">
+            <summary>
+            对CMDB元素能做什么操作？
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.SYS.WorkflowWzard.xIconUrl">
+            <summary>
+            向导标题图片
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.SYS.WorkflowWzard.xIsHasWFTemplate">
+            <summary>
+            流程模板是否存在
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.SYS.WorkflowWzard.xUnFinishWorkCount">
+            <summary>
+            该流程未完成的工作数
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.SYS.WorkflowWzard.xPathLocation">
+            <summary>
+            位置
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.SYS.WorkflowWzard.xFmeas">
+            <summary>
+            症状
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.SYS.WorkflowWzard.xStateDutyUserList">
+            <summary>
+            新增流程的时候返回下一步能安排的人
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.Topology.xReportOne.AutoRunWeekDay">
+            <summary>
+            不要从名字上理解，不同的周期频率，结果不同
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.Topology.xReportOne.AutoRunHour">
+            <summary>
+            不要从名字上理解，不同的周期频率，结果不同
+            </summary>
+        </member>
+        <member name="T:Sonic.Web.Models.Topology.TopoNode">
+            <summary>
+            名字都是简写，为了减少拓扑图的负担
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.Topology.TopoLink.xCurve">
+            <summary>
+            当两个节点之间连线多于一条，则必须采取弧度以避免重叠，这时候需要使用xCurve属性作为偏移量
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.Topology.TopoViewObject.TopoTitle">
+            <summary>
+            当前拓扑图的标题
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.Topology.TopoViewObject.xNodes">
+            <summary>
+            本图中所有节点，包括虚拟节点，还包括组
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.Topology.TopoViewObject.xGroups">
+            <summary>
+            新版本Gojs不再使用
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.Topology.TopoViewSettingObject.IsShowIpAddress">
+            <summary>
+            是否在节点下方显示IP地址
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.Topology.TopoViewSettingObject.IsShowHostName">
+            <summary>
+            是否在节点下方显示主机名
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.Topology.TopoViewSettingObject.IsShowBusinessName">
+            <summary>
+            是否在节点下方显示业务名
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.Topology.TopoViewSettingObject.IsShowCompanyIcon">
+            <summary>
+            是否在节点右下方显示厂商公司的图标
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.Topology.TopoViewSettingObject.IsUseSmallIcon">
+            <summary>
+            是否使用小图标，停用
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.Topology.TopoViewSettingObject.IsShowText">
+            <summary>
+            是否在节点的下方显示文字，如果是flase，压根就看不见任何文字
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.Topology.TopoViewSettingObject.IsShowInterface">
+            <summary>
+            是否显示连线上接口的名字 （停用）
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.Topology.TopoViewSettingObject.IsShowFlowText">
+            <summary>
+            是否在连线上现实流量的信息 （停用）
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.Topology.TopoViewSettingObject.IsShadow">
+            <summary>
+            是否给节点显示阴影
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.Topology.TopoViewSettingObject.xViewId">
+            <summary>
+            拓扑图的编号
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.Topology.TopoViewSettingObject.IsLockVNode">
+            <summary>
+            是否锁定虚拟节点，目的是为了让他变成背景 
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.Topology.TopoViewSettingObject.IsShowToolbar">
+            <summary>
+            是否显示工具栏，适合全屏使用
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.Topology.TopoViewSettingObject.IsShowTraffic">
+            <summary>
+            是否显示流量
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.Topology.TopoViewSettingObject.NodeTextFontSize">
+            <summary>
+            节点上文字的大小，单位是px
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.Topology.TopoViewSettingObject.LinkTextFontSize">
+            <summary>
+            连线上文字的大小，单位是px
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.Topology.MakeGroupObject.xViewId">
+            <summary>
+            当前拓扑图的ID
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.Topology.MakeGroupObject.xText">
+            <summary>
+            录入的组名称、子视图名称，界面上录入的
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.Topology.MakeGroupObject.xNodes">
+            <summary>
+            选中的节点
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.Topology.MakeGroupObject.xInsertVNodeX">
+            <summary>
+            创建子图并替换成虚拟节点，创建虚拟节点，需要知道位置 X 坐标
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.Topology.MakeGroupObject.xInsertVNodeY">
+            <summary>
+            创建子图并替换成虚拟节点，创建虚拟节点，需要知道位置 Y 坐标
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.Topology.PostUpdateIcon.ClearCustomIcon">
+            <summary>
+            是否清空属性，相当于还原默认值
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.Vwr.AvaCapTableResultItem.AvaPercent">
+            <summary>
+            可用性百分比
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.Vwr.AvaCapTableResultItem.IsNoData">
+            <summary>
+            是否有可用性监视数据
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.Vwr.AvaCapTableResultItem.总故障时间">
+            <summary>
+            单位：秒
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.Vwr.AvaCapTableResultItem.ErrorItems">
+            <summary>
+            可用性错误的时间段集合
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.Vwr.AvaCapTableTimeItem.StartTime">
+            <summary>
+            时间段的开始日期
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.Vwr.AvaCapTableTimeItem.EndTime">
+            <summary>
+            时间段的结束日期
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.Vwr.AvaCapTableTimeItem.StartMinute">
+            <summary>
+            查询时间段中开始的分钟数
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.Vwr.AvaCapTableTimeItem.ContinuedMinute">
+            <summary>
+            查询时间段中持续的分钟数
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.Vwr.AvaCapTableParameter.Type">
+            <summary>
+            ITSerivce, ITComponent
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.Vwr.AvaCapTableParameter.BSMType">
+            <summary>
+            对应其是哪类监视器的事态  枚举：MonitorBSMType   0=CI,1=可用性,2=容量,3=财务
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.Vwr.AvaCapTableParameter.TimeType">
+            <summary>
+            Day, Month, Week
+            </summary>
+        </member>
+        <member name="T:Sonic.Web.Models.Vwr.ViewConcertCenterObject">
+            <summary>
+            协控中心
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.Vwr.ViewConcertCenterObject.xItilRun">
+            <summary>
+            14天的事态，事件，变更等的运行情况
+            xTitle:event,incident,change等
+            xT1：14天产生的总数量
+            xT2：14天产生的事态（事件等）中，没有关闭的事态（事件等）的总数量
+            xT3：14天产生的事态（事件等）中，关闭的事态（事件等）的总数量
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.Vwr.ViewConcertCenterObject.xUnColosedWork">
+            <summary>
+            待完成工作数，即人员未完成的工作数量
+            xT1：人员姓名
+            xT2：未完成的工作数量
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.Vwr.ViewConcertCenterObject.xUserBusyPer">
+            <summary>
+            人员忙闲指标
+            xTitle：人员姓名
+            xT1：百分比
+            </summary>
+        </member>
+        <member name="M:Sonic.Web.Models.WebService.WebServiceResult.#ctor(System.String)">
+            <summary>
+            初始化返回参数
+            </summary>
+            <param name="code">Code: 0000 事件， 0001 变更</param>
+        </member>
+        <member name="T:Sonic.Web.Models.Workflow.OneObjectWithFlowInfo">
+            <summary>
+            一个流程数据呈现所需的数据
+            </summary>
+            <remarks>
+            当用户选择查看某一条流程数据时，会有一个界面来显示这条数据的一套信息。
+            <list type="table">
+            <item>
+            Controller: /Workflow/GetCanInvokeActions 返回这个结果，使用案例 wfone.shtml.js
+            </item>
+            <item>
+            </item>
+            </list>
+            </remarks>
+        </member>
+        <member name="P:Sonic.Web.Models.Workflow.OneObjectWithFlowInfo.xWizardId">
+            <summary>
+            流程向导的ID，对应数据表
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.Workflow.OneObjectWithFlowInfo.xDataObject">
+            <summary>
+            当前这条流程数据的业务数据
+            他对应的是<see cref="!:FlowObjectBase">FlowObjectBase</see>
+            <list type="table">
+            <item>
+            <term>IncidentOne</term>
+            <description>事件管理的流程数据对象</description>
+            </item>
+            <item>
+            <term>ChangeOne</term>
+            <description>变更管理的流程数据对象</description>
+            </item>
+            </list>
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.Workflow.OneObjectWithFlowInfo.HasRightInStateMsg">
+            是否需要什么特殊的提示
+        </member>
+        <member name="P:Sonic.Web.Models.Workflow.DoActionInfo.PostState">
+            <summary>
+            只要在DoAction时候，由客户端赋值，服务器使用
+            </summary>
+        </member>
+        <member name="P:Sonic.Web.Models.Workflow.DoActionInfo.OneActionUI">
+            <summary>
+            点击一个处理的按钮，得到的界面相应信息
+            </summary>
+        </member>
+    </members>
+</doc>

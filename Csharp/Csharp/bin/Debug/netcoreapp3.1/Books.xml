@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Books>
+  <Book1>
+    <Name>书1</Name>
+    <Price>19</Price>
+    <des>好看</des>
+  </Book1>
+  <Book2>
+    <Name>书1</Name>
+    <Price>19</Price>
+    <des>好看</des>
+  </Book2>
+  <Book1>
+    <Name>C#</Name>
+    <Price>129</Price>
+    <des>aa好看</des>
+  </Book1>
+</Books>
