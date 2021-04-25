@@ -1,0 +1,7 @@
+ManifestFileVersion: 0
+CRC: 2538999698
+AssetBundleManifest:
+  AssetBundleInfos:
+    Info_0:
+      Name: ibm_system_x3650_m4(2u).ntrd
+      Dependencies: {}

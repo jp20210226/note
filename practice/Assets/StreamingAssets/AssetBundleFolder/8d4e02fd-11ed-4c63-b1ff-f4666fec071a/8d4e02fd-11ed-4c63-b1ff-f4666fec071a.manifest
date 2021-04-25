@@ -1,0 +1,7 @@
+ManifestFileVersion: 0
+CRC: 1126553620
+AssetBundleManifest:
+  AssetBundleInfos:
+    Info_0:
+      Name: cisco_sd_r7p(2u).ntrd
+      Dependencies: {}

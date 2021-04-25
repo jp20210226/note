@@ -1,0 +1,7 @@
+ManifestFileVersion: 0
+CRC: 4065041254
+AssetBundleManifest:
+  AssetBundleInfos:
+    Info_0:
+      Name: cisco_7609_s(20u).ntrd
+      Dependencies: {}

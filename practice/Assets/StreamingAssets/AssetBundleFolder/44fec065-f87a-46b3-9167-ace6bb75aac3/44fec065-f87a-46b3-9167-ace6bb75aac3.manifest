@@ -1,0 +1,7 @@
+ManifestFileVersion: 0
+CRC: 2819604696
+AssetBundleManifest:
+  AssetBundleInfos:
+    Info_0:
+      Name: huawei_mcu1(5u).ntrd
+      Dependencies: {}
