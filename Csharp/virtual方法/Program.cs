@@ -42,7 +42,7 @@ namespace virtual方法
             Console.WriteLine("SayB");
         }
 
-        public  void Speak()
+        new   public  void Speak()
         {
             Console.WriteLine("SpeakB");
         }
