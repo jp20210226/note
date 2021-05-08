@@ -47,17 +47,23 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "多线程Lock", "多线程�
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "多线程await和async", "多线程await和async\多线程await和async.csproj", "{CBA799EF-0BCD-4631-8E75-30FD154DE2C4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "virtual方法", "virtual方法\virtual方法.csproj", "{F1806C4F-4569-446C-977A-80B2EFE10C53}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "virtual方法", "virtual方法\virtual方法.csproj", "{F1806C4F-4569-446C-977A-80B2EFE10C53}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "枚举", "枚举\枚举.csproj", "{416163D2-398D-4D1F-83F6-8E3B049ABE23}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "枚举", "枚举\枚举.csproj", "{416163D2-398D-4D1F-83F6-8E3B049ABE23}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "泛型", "泛型\泛型.csproj", "{B321ABB9-2C51-4942-B5A6-A3729A4D4287}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "泛型", "泛型\泛型.csproj", "{B321ABB9-2C51-4942-B5A6-A3729A4D4287}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "委托", "委托\委托.csproj", "{5F655DF1-8F7F-4192-8EDE-1F1B7ABFF70A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "委托", "委托\委托.csproj", "{5F655DF1-8F7F-4192-8EDE-1F1B7ABFF70A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "事件", "事件\事件.csproj", "{EA12E9AE-2AF8-41D4-B00D-7879FEB1D7F4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "事件", "事件\事件.csproj", "{EA12E9AE-2AF8-41D4-B00D-7879FEB1D7F4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "lambda表达式", "lambda表达式\lambda表达式.csproj", "{4A55EEDA-8A5E-4BA7-8774-E41AD7877E6D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "lambda表达式", "lambda表达式\lambda表达式.csproj", "{4A55EEDA-8A5E-4BA7-8774-E41AD7877E6D}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "解析未知Key值Json", "解析未知Key值Json\解析未知Key值Json.csproj", "{D767B101-1C21-48BB-89A3-58E3964BC320}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CallerInfoAttribute", "CallerInfoAttribute\CallerInfoAttribute.csproj", "{08ABB212-B2CB-4958-8B23-D2117F7202CB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "接口", "接口\接口.csproj", "{5D7317BC-BD21-407A-9773-0597B8E22CA1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -405,6 +411,42 @@ Global
 		{4A55EEDA-8A5E-4BA7-8774-E41AD7877E6D}.Release|x64.Build.0 = Release|Any CPU
 		{4A55EEDA-8A5E-4BA7-8774-E41AD7877E6D}.Release|x86.ActiveCfg = Release|Any CPU
 		{4A55EEDA-8A5E-4BA7-8774-E41AD7877E6D}.Release|x86.Build.0 = Release|Any CPU
+		{D767B101-1C21-48BB-89A3-58E3964BC320}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D767B101-1C21-48BB-89A3-58E3964BC320}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D767B101-1C21-48BB-89A3-58E3964BC320}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{D767B101-1C21-48BB-89A3-58E3964BC320}.Debug|x64.Build.0 = Debug|Any CPU
+		{D767B101-1C21-48BB-89A3-58E3964BC320}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{D767B101-1C21-48BB-89A3-58E3964BC320}.Debug|x86.Build.0 = Debug|Any CPU
+		{D767B101-1C21-48BB-89A3-58E3964BC320}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D767B101-1C21-48BB-89A3-58E3964BC320}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D767B101-1C21-48BB-89A3-58E3964BC320}.Release|x64.ActiveCfg = Release|Any CPU
+		{D767B101-1C21-48BB-89A3-58E3964BC320}.Release|x64.Build.0 = Release|Any CPU
+		{D767B101-1C21-48BB-89A3-58E3964BC320}.Release|x86.ActiveCfg = Release|Any CPU
+		{D767B101-1C21-48BB-89A3-58E3964BC320}.Release|x86.Build.0 = Release|Any CPU
+		{08ABB212-B2CB-4958-8B23-D2117F7202CB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{08ABB212-B2CB-4958-8B23-D2117F7202CB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{08ABB212-B2CB-4958-8B23-D2117F7202CB}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{08ABB212-B2CB-4958-8B23-D2117F7202CB}.Debug|x64.Build.0 = Debug|Any CPU
+		{08ABB212-B2CB-4958-8B23-D2117F7202CB}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{08ABB212-B2CB-4958-8B23-D2117F7202CB}.Debug|x86.Build.0 = Debug|Any CPU
+		{08ABB212-B2CB-4958-8B23-D2117F7202CB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{08ABB212-B2CB-4958-8B23-D2117F7202CB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{08ABB212-B2CB-4958-8B23-D2117F7202CB}.Release|x64.ActiveCfg = Release|Any CPU
+		{08ABB212-B2CB-4958-8B23-D2117F7202CB}.Release|x64.Build.0 = Release|Any CPU
+		{08ABB212-B2CB-4958-8B23-D2117F7202CB}.Release|x86.ActiveCfg = Release|Any CPU
+		{08ABB212-B2CB-4958-8B23-D2117F7202CB}.Release|x86.Build.0 = Release|Any CPU
+		{5D7317BC-BD21-407A-9773-0597B8E22CA1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5D7317BC-BD21-407A-9773-0597B8E22CA1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5D7317BC-BD21-407A-9773-0597B8E22CA1}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{5D7317BC-BD21-407A-9773-0597B8E22CA1}.Debug|x64.Build.0 = Debug|Any CPU
+		{5D7317BC-BD21-407A-9773-0597B8E22CA1}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{5D7317BC-BD21-407A-9773-0597B8E22CA1}.Debug|x86.Build.0 = Debug|Any CPU
+		{5D7317BC-BD21-407A-9773-0597B8E22CA1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5D7317BC-BD21-407A-9773-0597B8E22CA1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5D7317BC-BD21-407A-9773-0597B8E22CA1}.Release|x64.ActiveCfg = Release|Any CPU
+		{5D7317BC-BD21-407A-9773-0597B8E22CA1}.Release|x64.Build.0 = Release|Any CPU
+		{5D7317BC-BD21-407A-9773-0597B8E22CA1}.Release|x86.ActiveCfg = Release|Any CPU
+		{5D7317BC-BD21-407A-9773-0597B8E22CA1}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
