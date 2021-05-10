@@ -1,98 +1,116 @@
 ﻿using System;
+using System.Data.SqlTypes;
+using System.Reflection.Metadata.Ecma335;
 
 namespace 运算符重载
 {
-    public class Box
-    {
+    #region 普通运算符重载
+    //class Program
+    //{
+    //    static void Main(string[] args)
+    //    {
+    //        Note B = new Note(2);
+    //        Note sharp = B + 2;
+    //        sharp += 2;
+    //    }
+    //}
 
-        float _Length;
-        float _Width;
-        float _Hight;
-        public void setLength(float len)
-        {
-            _Length = len;
-        }
+    //public struct Note
+    //{
+    //    public int value;
 
-        public void setBreadth(float bre)
-        {
-            _Width = bre;
-        }
+    //    public Note(int semitonesFromA)
+    //    {
+    //        value = semitonesFromA;
+    //    }
 
-        public void setHeight(float hei)
-        {
-            _Hight = hei;
-        }
-        public static Box operator +(Box a, Box b)
-        {
-            Box box = new Box();
-            box._Length = a._Length + b._Length;
-            box._Width = a._Width + b._Width;
-            box._Hight = a._Hight + b._Hight;
-            return box;
-        }
-        public static bool operator ==(Box a, Box b)
-        {
-            if ((a._Length == b._Length) && (a._Width == b._Width) && (a._Hight == b._Hight))
-            {
-                return true;
-            }
-            else
-                return false;
-        }
+    //    public static Note operator +(Note x, int semitones)
+    //    {
+    //        return new Note(x.value + semitones);
+    //    }
 
+    //    public static bool operator >(Note x, int semitones)
+    //    {
+    //        return x.value > semitones;
+    //    }
+    //    public static bool operator <(Note x, int semitones)
+    //    {
+    //        return x.value < semitones;
+    //    }
+    //    //public  static  Note operator +(Note x, int semitones) =>  new Note(x.value+semitones);
+    //}
+    #endregion
 
-        public static bool operator !=(Box a, Box b)
-        {
-            if ((a._Length != b._Length) || (a._Width != b._Width) || (a._Hight != b._Hight))
-            {
-                return true;
-            }
-            else
-                return false;
-        }
-        public double getVolume()
-        {
-            return _Length * _Width * _Hight;
-        }
+    #region 隐式（implicit）显示（explicit）运算符重载
+    //class Program
+    //{
+    //    static void Main(string[] args)
+    //    {
+    //        Note n = (Note) 554.37;//显示转换;
+    //        double x = n;//隐式转换;
+    //        //Note n1 = 554.37 as Note;//编译器报错 554.37不是引用类型或者可空值类型
+    //    }
+    //}
 
-        public override bool Equals(object obj)
-        {
-            return obj is Box box &&
-                   _Length == box._Length &&
-                   _Width == box._Width &&
-                   _Hight == box._Hight;
-        }
+    //public struct Note
+    //{
+    //    public int value;
 
-        public override int GetHashCode()
-        {
-            return base.GetHashCode();
-        }
+    //    public Note(int semitonesFromA)
+    //    {
+    //        value = semitonesFromA;
+    //    }
+    //    //隐式转化 
+    //    public static implicit operator double(Note x) => 440 * Math.Pow(2, (double) x.value / 2);
+    //    //显示转化 
+    //    public static explicit operator Note(double x) => new Note((int) (0.5 + 12 * (Math.Log(x / 440 / Math.PI))));
 
-        public override string ToString()
-        {
-            return base.ToString();
-        }
-    }
+    //}
+    #endregion
+
+    #region true 和 false运算符重载
     class Program
     {
-
         static void Main(string[] args)
         {
-            Box Box1 = new Box();         // 声明 Box1，类型为 Box
-            Box Box2 = new Box();         // 声明 Box2，类型为 Box
-            Box Box3 = new Box();
-
-            Box1.setLength(6.0f);
-            Box1.setBreadth(6.0f);
-            Box1.setHeight(6.0f);
-
-            // Box2 详述
-            Box2.setLength(6.0f);
-            Box2.setBreadth(6.0f);
-            Box2.setHeight(10.0f);
-
-            Box3 = Box1 + Box2;
-            Console.WriteLine("{0}", Box2 != Box3);
+            SqlBoolean a= SqlBoolean.Null;
+            if (a)
+            {
+                Console.WriteLine("true");
+            }
+            else if (!a)
+            {
+                Console.WriteLine("false");
+            }
+            else
+            {
+                Console.WriteLine("Null");
+            }
         }
     }
+
+    //public struct SqlBoolean
+    //{
+    //    public static readonly SqlBoolean Null = new SqlBoolean(0);
+    //    public static readonly SqlBoolean False = new SqlBoolean(1);
+    //    public static readonly SqlBoolean True = new SqlBoolean(2);
+    //    public static bool operator true(SqlBoolean x) => x.m_value == True.m_value;
+    //    public static bool operator false(SqlBoolean x) => x.m_value == False.m_value;
+
+    //    public static SqlBoolean operator !(SqlBoolean x)
+    //    {
+    //        if(x.m_value == Null.m_value) return  Null;
+    //        if (x.m_value == False.m_value) return True;
+    //        return False;
+    //    }
+
+    //    private byte m_value;
+
+    //    private SqlBoolean(byte value)
+    //    {
+    //        m_value = value;
+    //    }
+    //}
+    #endregion
+
     }
