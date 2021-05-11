@@ -61,9 +61,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "lambda表达式", "lambda�
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "解析未知Key值Json", "解析未知Key值Json\解析未知Key值Json.csproj", "{D767B101-1C21-48BB-89A3-58E3964BC320}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CallerInfoAttribute", "CallerInfoAttribute\CallerInfoAttribute.csproj", "{08ABB212-B2CB-4958-8B23-D2117F7202CB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CallerInfoAttribute", "CallerInfoAttribute\CallerInfoAttribute.csproj", "{08ABB212-B2CB-4958-8B23-D2117F7202CB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "接口", "接口\接口.csproj", "{5D7317BC-BD21-407A-9773-0597B8E22CA1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "接口", "接口\接口.csproj", "{5D7317BC-BD21-407A-9773-0597B8E22CA1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "指针和不安全代码", "指针和不安全代码\指针和不安全代码.csproj", "{F8EE0111-E276-47FC-8963-292F026D502A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -447,6 +449,18 @@ Global
 		{5D7317BC-BD21-407A-9773-0597B8E22CA1}.Release|x64.Build.0 = Release|Any CPU
 		{5D7317BC-BD21-407A-9773-0597B8E22CA1}.Release|x86.ActiveCfg = Release|Any CPU
 		{5D7317BC-BD21-407A-9773-0597B8E22CA1}.Release|x86.Build.0 = Release|Any CPU
+		{F8EE0111-E276-47FC-8963-292F026D502A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F8EE0111-E276-47FC-8963-292F026D502A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F8EE0111-E276-47FC-8963-292F026D502A}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{F8EE0111-E276-47FC-8963-292F026D502A}.Debug|x64.Build.0 = Debug|Any CPU
+		{F8EE0111-E276-47FC-8963-292F026D502A}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{F8EE0111-E276-47FC-8963-292F026D502A}.Debug|x86.Build.0 = Debug|Any CPU
+		{F8EE0111-E276-47FC-8963-292F026D502A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F8EE0111-E276-47FC-8963-292F026D502A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F8EE0111-E276-47FC-8963-292F026D502A}.Release|x64.ActiveCfg = Release|Any CPU
+		{F8EE0111-E276-47FC-8963-292F026D502A}.Release|x64.Build.0 = Release|Any CPU
+		{F8EE0111-E276-47FC-8963-292F026D502A}.Release|x86.ActiveCfg = Release|Any CPU
+		{F8EE0111-E276-47FC-8963-292F026D502A}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

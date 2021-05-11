@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v3.1",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v3.1": {
+      "指针和不安全代码/1.0.0": {
+        "runtime": {
+          "指针和不安全代码.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "指针和不安全代码/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
