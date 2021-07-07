@@ -1,57 +1,64 @@
-﻿using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
-using System;
-using System.Collections.Generic;
-using System.Diagnostics;
+﻿using System;
 using System.IO;
-using System.Reflection;
+using System.Runtime.Serialization.Formatters.Binary;
+using System.Text;
 namespace 测完即删
 {
-    
-    class Program
+     
+    public class program
     {
-        
         static void Main(string[] args)
         {
-            int? a = 5;
-            int b = 109;
-            var c = a + b;
-            string JsonTest = File.ReadAllText(@"C:\Users\jp\Desktop\3D取到的数据.json");
-            var product = new Product();
-            var data = JObject.Parse(JsonTest);
-            foreach (var item in data)
-            {
-                product.SetProperty(item.Key, item.Value.ToString());
-            }
+            Stock s = new Stock("南天");
+            s.Price = 123;
+            s.PriceChanged += stock_PriceChanged; s.Price = 121;
         }
-    
+        
+        public static  void stock_PriceChanged(object sender, PriceChangedArgs e)
+        {
+            Console.WriteLine(e.LastPrice + e.NewPrice);
+        }
     }
 
-    public class Product
+    public class PriceChangedArgs : EventArgs
     {
-        private Type _type;
+        public decimal LastPrice { set; get; }
+        public decimal NewPrice { set; get; }
 
-        public Product()
+        public PriceChangedArgs(decimal lastprice, decimal newprice)
         {
-            fields = new Dictionary<string, string>();
-            _type = GetType();
-        }
-
-        public string id { get; set; }
-        public string name { get; set; }
-        public Dictionary<string, string> fields { get; set; }
-
-        public void SetProperty(string key, string value)
-        {
-            var propertyInfo = _type.GetProperty(key);
-            if (null == propertyInfo)
-            {
-                fields.Add(key, value);
-                return;
-            }
-            propertyInfo.SetValue(this, value.ToString());
+            this.LastPrice = lastprice;
+            this.NewPrice = newprice;
         }
     }
 
+    public class Stock
+    {
+        public string Symbol;
+        public Stock(string symbol)
+        {
+            this.Symbol = symbol; 
+        }
+        private decimal price;
+
+        public event EventHandler<PriceChangedArgs> PriceChanged;
+
+        public virtual void OnPriceChanged(PriceChangedArgs  e)
+        {
+            PriceChanged?.Invoke(this, e);
+        }
+
+        public decimal Price
+        {
+            get { return price; }
+            set
+            {
+                if (price == value) return;
+                decimal tempprice = price;
+                price = value;
+                OnPriceChanged(new PriceChangedArgs(tempprice, price));
+            }
+        }
+    }
 
 }

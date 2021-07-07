@@ -15,6 +15,7 @@ namespace Csharp
     {
         static void Main(string[] args)
         {
+            OpenFileDialog
             //string path = @"C:\Users\jp\Desktop\new.txt";
             #region 文件流读取
             ////FileStream读取

@@ -129,7 +129,16 @@ namespace 事件
         //这个方法是可以触发上面事件的方法
         protected virtual void OnPriceChanged(PriceChangedEventArgs e)
         {   //事件触发处，到此处说明事件已经触发
-            PriceChanged?.Invoke(this, e);//事件的触发实际上相当于调用委托的目标方法
+            //事件的触发实际上相当于调用委托的目标方法,单线程用多线程存在线程安全问题
+             PriceChanged?.Invoke(this, e);
+
+            //多线程可用
+            //EventHandler<PriceChangedEventArgs> Tempevent = this.PriceChanged;
+            //if (Tempevent != null)
+            //{
+            //    Tempevent(this, e);
+            //}
+
         }
 
 
@@ -161,10 +170,9 @@ namespace 事件
 
         private static void stock_PriceChanged(object sender, PriceChangedEventArgs e)
         {
-           if((e.NewPrice -e.LastPrice)/e.LastPrice >0.1M)
-           {
-                Console.WriteLine("股票涨了10%");
-           }
+           
+                Console.WriteLine($"股票浮动了{((e.NewPrice - e.LastPrice)/e.LastPrice *100).ToString("0.00")}%");
+           
         }
     }
 

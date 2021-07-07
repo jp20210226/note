@@ -8,7 +8,7 @@ namespace 连接数据库
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+          new  MysqlCon().ConnectMySQL();
         }
     }
     public class MysqlCon
