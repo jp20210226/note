@@ -1,0 +1,11 @@
+Library/
+Logs/
+Packages/
+Temp/
+obj/
+.vs/
+AssetBundleFolder/
+*.csproj
+*.sln
+.csproj
+.sln

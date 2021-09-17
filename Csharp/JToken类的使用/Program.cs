@@ -10,6 +10,37 @@ namespace Dynamic
 {
     class Program
     {
+        public void ceshi()
+        {
+            //    string path = @"C:\Users\jp\Desktop\response_1629352238605.json";
+            //    string json = File.ReadAllText(path);
+            //    JObject Oproject = JObject.Parse(json);
+            //    JToken Tdata = Oproject["data"];
+            //    JObject j = Tdata.ToObject<JObject>();
+            //    JArray jDisPlay = new JArray();
+            //    JArray SubData = new JArray();
+            //        foreach (var jd in j)
+            //        {
+            //            if (jd.Key == "不展示组")
+            //            {
+            //                continue;
+            //            }
+            //            else if (jd.Key == "子设备")
+            //            {
+
+            //                SubData = (JArray) jd.Value;
+
+            //}
+            //            else
+            //            {
+
+            //                JObject temp = new JObject();
+            //temp[jd.Key] = jd.Value;
+            //                jDisPlay.Add(temp);
+            //            }
+            //        }
+            //       Console.WriteLine(SubData.First);
+        }
         static void Main(string[] args)
         {
             //dynamic d = new ExpandoObject(); 

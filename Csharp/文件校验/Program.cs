@@ -26,7 +26,9 @@ namespace 文件校验
 
       public static string CreatMD5()
         {
-            using (FileStream file = new FileStream(@"C:\Users\jp\Desktop\e74a4cca-5f30-4ffc-91dc-d8384bdea1aa.ntrd.chena", FileMode.OpenOrCreate, FileAccess.ReadWrite))
+            string path1 = @"C:\Users\jp\Desktop\04b781faa25a463b9b28fea74d73f8eb\04b781faa25a463b9b28fea74d73f8eb.ntrd.chena";
+            string path2 = @"E:\IDCV\Code\IDCV_3DClient2.0\Assets\StreamingAssets\AssetBundleFolder\04b781faa25a463b9b28fea74d73f8eb\04b781faa25a463b9b28fea74d73f8eb.ntrd.chena";
+            using (FileStream file = new FileStream(path2, FileMode.OpenOrCreate, FileAccess.ReadWrite))
             {
                 MD5 md5 = new MD5CryptoServiceProvider() ;
                 byte[] YourFile = md5.ComputeHash(file);

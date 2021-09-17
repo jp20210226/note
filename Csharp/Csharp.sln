@@ -71,7 +71,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "线程信号", "线程信�
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "task", "task\task.csproj", "{2F245DCB-912C-4A73-B6F4-C8ACA7B120BE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "类通过接口依赖", "类通过接口依赖\类通过接口依赖.csproj", "{BD61B5A8-498C-48AA-8354-462A6946D736}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "类通过接口依赖", "类通过接口依赖\类通过接口依赖.csproj", "{BD61B5A8-498C-48AA-8354-462A6946D736}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "redis", "redis\redis.csproj", "{A4B46E8C-B52F-4AE2-A896-53CCA79BCBE7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -503,6 +505,18 @@ Global
 		{BD61B5A8-498C-48AA-8354-462A6946D736}.Release|x64.Build.0 = Release|Any CPU
 		{BD61B5A8-498C-48AA-8354-462A6946D736}.Release|x86.ActiveCfg = Release|Any CPU
 		{BD61B5A8-498C-48AA-8354-462A6946D736}.Release|x86.Build.0 = Release|Any CPU
+		{A4B46E8C-B52F-4AE2-A896-53CCA79BCBE7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A4B46E8C-B52F-4AE2-A896-53CCA79BCBE7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A4B46E8C-B52F-4AE2-A896-53CCA79BCBE7}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{A4B46E8C-B52F-4AE2-A896-53CCA79BCBE7}.Debug|x64.Build.0 = Debug|Any CPU
+		{A4B46E8C-B52F-4AE2-A896-53CCA79BCBE7}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{A4B46E8C-B52F-4AE2-A896-53CCA79BCBE7}.Debug|x86.Build.0 = Debug|Any CPU
+		{A4B46E8C-B52F-4AE2-A896-53CCA79BCBE7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A4B46E8C-B52F-4AE2-A896-53CCA79BCBE7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A4B46E8C-B52F-4AE2-A896-53CCA79BCBE7}.Release|x64.ActiveCfg = Release|Any CPU
+		{A4B46E8C-B52F-4AE2-A896-53CCA79BCBE7}.Release|x64.Build.0 = Release|Any CPU
+		{A4B46E8C-B52F-4AE2-A896-53CCA79BCBE7}.Release|x86.ActiveCfg = Release|Any CPU
+		{A4B46E8C-B52F-4AE2-A896-53CCA79BCBE7}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

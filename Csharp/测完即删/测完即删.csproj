@@ -10,12 +10,14 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="JetBrains.Annotations" Version="2021.1.0" />
     <PackageReference Include="MySql.Data.EntityFrameworkCore" Version="8.0.22" />
-    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
   </ItemGroup>
 
   <ItemGroup>
+    <Reference Include="LitJson">
+      <HintPath>..\..\..\..\IDCV\Code\IDCV_3DClient2.0\Assets\Plugins\LitJson.dll</HintPath>
+    </Reference>
     <Reference Include="MySql.Data">
       <HintPath>..\index\MySql.Data.dll</HintPath>
     </Reference>
